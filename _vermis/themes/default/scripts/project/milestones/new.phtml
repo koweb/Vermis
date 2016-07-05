@@ -1,0 +1,10 @@
+<?php /* $Id: new.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<div class="action-menu">
+    <?= $this->render('milestones/_menu.phtml') ?>
+</div>
+
+<div class="header-box">
+    <h1><?= _T('create_a_new_milestone') ?> <?= _T('in_project') ?> <strong><?= $this->escape($this->project->name) ?></strong></h1>
+</div>
+
+<?= $this->form ?>

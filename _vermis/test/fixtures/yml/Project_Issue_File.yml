@@ -1,0 +1,12 @@
+---
+
+Project_Issue_File:
+    
+    project_issue_file1:
+        author:     admin
+        issue:      issue1
+        real_name:  'ABC'
+        disk_name:  'abc'
+        size:       123
+        mime_type:  'image/png'
+      

@@ -1,0 +1,29 @@
+<?php /* $Id: _header.phtml 104 2011-01-05 22:43:41Z cepa $ */ ?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+    <base href="<?= $this->config->baseHost.$this->config->baseUri ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="cepa" />
+
+    <script type="text/javascript" src="_vermis/themes/default/js/jquery/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="_vermis/themes/default/js/jquery/jquery.delay.js"></script>
+    <script type="text/javascript" src="_vermis/themes/default/js/jquery/jquery.lightbox-0.5.pack.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="_vermis/themes/default/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="_vermis/themes/demo/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="_vermis/themes/default/js/jquery/jquery.lightbox-0.5.css"/>
+
+    <link rel="icon" type="image/png" href="_vermis/themes/default/gfx/favicon.png">
+
+    <?= $this->headTitle() ?>
+    <?= $this->headStyle() ?>
+    <?= $this->headScript()?>
+        
+    <script type="text/javascript">$(function(){ $('a.lightbox').lightBox(); });</script>
+        
+</head>
+<body>

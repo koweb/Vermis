@@ -1,0 +1,30 @@
+---
+User:
+    admin:
+        login:          'admin'
+        name:           'Admin User'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('admin'); ?>"
+        email:          'admin@admin.com'
+        role:           "<?= User::ROLE_ADMIN ?>"
+        
+    test_user1:
+        login:          'test-user1'
+        name:           'Test User 1'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('xxx'); ?>"
+        email:          'email1@email.com'
+        role:           "<?= User::ROLE_USER ?>"
+
+    test_user2:
+        login:          'test-user2'
+        name:           'Test User 2'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('xxx'); ?>"
+        email:          'email2@email.com'
+        role:           "<?= User::ROLE_USER ?>"
+
+    test_user3:
+        login:          'test-user3'
+        name:           'Test User 3'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('xxx'); ?>"
+        email:          'email3@email.com'
+        role:           "<?= User::ROLE_USER ?>"
+        

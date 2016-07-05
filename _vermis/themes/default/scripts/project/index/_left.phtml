@@ -1,0 +1,85 @@
+<?php /* $Id: _left.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+    <div class="header-box">
+        <h1><?= _T('project') ?> <strong><?= $this->escape($this->project->name) ?></strong></h1>
+    </div>
+    
+    <div class="text-frame"><p><?= $this->superEscape($this->project->description) ?></p></div>
+    
+    <div class="info-frame">        
+        <div class="header"><?= _T('details') ?></div>
+        <div class="content-box">
+            <div class="property">
+                <div class="label"><?= _T('access') ?>:</div>
+                <div class="content"><?= $this->boolLabel($this->project->is_private, _T('Private'), _T('Public')) ?></div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('created_by') ?>:</div>
+                <div class="content"><?= $this->userLink($this->project->author->slug, $this->project->author->name) ?></div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('updated_by') ?>:</div>
+                <div class="content"><?= $this->userLink($this->project->changer->slug, $this->project->changer->name) ?></div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('created_at') ?>:</div>
+                <div class="content"><?= $this->date($this->project->create_time) ?></div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('updated_at') ?>:</div>
+                <div class="content"><?= $this->date($this->project->update_time) ?></div>
+            </div>
+        </div>
+    </div>
+    
+    <? if (count($this->milestones) > 0): ?>
+        <div class="info-frame">        
+            <div class="header"><?= _T('milestones') ?></div>
+            <div class="content-box">
+                <ul class="list">
+                    <? foreach ($this->milestones as $milestone): ?>
+                        <li><?= $this->milestoneLink($this->project['slug'], $milestone['slug'], $milestone['name']) ?></li>
+                    <? endforeach ?>
+                </ul>
+            </div>
+        </div>
+    <? endif ?>
+    
+    <? if (count($this->components) > 0): ?>
+        <div class="info-frame">        
+            <div class="header"><?= _T('components') ?></div>
+            <div class="content-box">
+                <ul class="list">
+                    <? foreach ($this->components as $component): ?>
+                        <li><?= $this->componentLink($this->project['slug'], $component['slug'], $component['name']) ?></li>
+                    <? endforeach ?>
+                </ul>
+            </div>
+        </div>
+    <? endif ?>
+    
+    <? if (count($this->leaders) > 0): ?>
+        <div class="info-frame">        
+            <div class="header"><?= _T('leaders') ?></div>
+            <div class="content-box">
+                <?= $this->partial('index/_members.phtml', array('members' => $this->leaders))?>
+            </div>
+        </div>
+    <? endif ?>
+    
+    <? if (count($this->developers) > 0): ?>
+        <div class="info-frame">        
+            <div class="header"><?= _T('developers') ?></div>
+            <div class="content-box">
+                <?= $this->partial('index/_members.phtml', array('members' => $this->developers))?>
+            </div>
+        </div>
+    <? endif ?>
+    
+    <? if (count($this->observers) > 0): ?>
+        <div class="info-frame">        
+            <div class="header"><?= _T('observers') ?></div>
+            <div class="content-box">
+                <?= $this->partial('index/_members.phtml', array('members' => $this->observers))?>
+            </div>
+        </div>
+    <? endif ?>

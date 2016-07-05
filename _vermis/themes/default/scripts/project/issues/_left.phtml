@@ -1,0 +1,103 @@
+<?php /* $Id: _left.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<div class="header-box">
+    <h1><?= _T('issue') ?> <strong><?= $this->escape($this->project->name) ?>-<?= $this->escape($this->issue->number) ?></strong></h1>
+</div>
+
+        <div class="info-frame">
+            <div class="header"><?= _T('details') ?></div>
+            <div class="content-box">
+                <div class="property">
+                    <div class="label"><?= _T('project') ?>:</div>
+                    <div class="value"><?= $this->projectLink($this->project->slug, $this->project->name) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('number') ?>:</div>
+                    <div class="value"><?= $this->escape($this->issue->number) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('type') ?>:</div>
+                    <div class="value"><?= $this->issueType($this->issue->type) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('status') ?>:</div>
+                    <div class="value"><?= $this->issueStatus($this->issue->status) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('priority') ?>:</div>
+                    <div class="value"><?= $this->issuePriority($this->issue->priority) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('component') ?>:</div>
+                    <div class="value"><?= $this->componentLink($this->project->slug, $this->issue->component->slug, $this->issue->component->name) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('milestone') ?>:</div>
+                    <div class="value"><?= $this->milestoneLink($this->project->slug, $this->issue->milestone->slug, $this->issue->milestone->name) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('assigned_to') ?>:</div>
+                    <div class="value"><?= $this->userLink($this->issue->assignee->slug, $this->issue->assignee->name) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('reported_by') ?>:</div>
+                    <div class="value"><?= $this->userLink($this->issue->reporter->slug, $this->issue->reporter->name) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('updated_by') ?>:</div>
+                    <div class="value"><?= $this->userLink($this->issue->changer->slug, $this->issue->changer->name) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('created_at') ?>:</div>
+                    <div class="value"><?= $this->date($this->issue->create_time) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('updated_at') ?>:</div>
+                    <div class="value"><?= $this->date($this->issue->update_time) ?>&nbsp;</div>
+                </div>
+                <div class="property">
+                    <div class="label"><?= _T('progress') ?>:</div>
+                    <div class="value"><?= $this->progressBar($this->issue->progress) ?>&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-frame">
+            <div class="header"><?= _T('attachments') ?></div>
+            <div class="content-box">
+                <ul class="list">
+                    <? foreach ($this->files as $file): ?>
+                        <li>
+                        	<? $class = ''; if (in_array($file['mime_type'], Project_Issue_File::$noAttachmentTypes)) { $class = ' class="lightbox"'; } ?>
+                            <a <?= $class?> href="<?= $this->url(array('project_slug' => $this->project->slug, 'issue_number' => $this->issue->number, 'file_id' => $file['id']), 'project/issues_files/download') ?>">
+                                <?= $this->escape($file['real_name']) ?>
+                            </a> 
+                            (<?= FreeCode_String::fileSize($file['size'], '') ?>)
+                            <? if ($this->identity && $this->identity->isAdmin()): ?>
+                                <?
+                                $buttons = array(
+                                    array(
+                                        'title' => 'delete', 
+                                        'url' => $this->url(
+                                            array(
+                                                'project_slug' => $this->project->slug, 
+                                                'issue_number' => $this->issue->number, 
+                                                'file_id' => $file['id']
+                                            ), 
+                                            'project/issues_files/delete'
+                                        ), 
+                                        'icon' => 'delete',
+                                        'confirm' => true
+                                    )
+                                );
+                                ?>
+                                <?= $this->smallButtons($buttons) ?>
+                            <? endif ?>
+                        </li>
+                    <? endforeach ?>
+                </ul>
+                <? if ($this->identity): ?>
+                    <?= $this->uploadForm ?>
+                <? endif ?>
+            </div>
+        </div>
+        

@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+#demo-bar {
+	background:#000000;
+	color:#ffffff;
+	font-size:13px;
+	font-weight:bold;
+	line-height:26px;
+	height:26px;
+	padding:0 10px;
+}
+#demo-bar-shadow {
+	height:3px;
+	background:url('../gfx/triangles_bottom.gif') repeat-x;
+}

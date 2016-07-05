@@ -1,0 +1,30 @@
+<?php /* $Id: _left.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+    <div class="header-box">
+        <h1><?= _T('note') ?></h1>
+    </div>
+    
+    <div class="info-frame">        
+        <div class="header"><?= _T('details') ?></div>
+        <div class="content-box">
+            <div class="property">
+                <div class="label"><?= _T('project') ?>:</div>
+                <div class="value"><?= $this->projectLink($this->project->slug, $this->project->name) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('created_by') ?>:</div>
+                <div class="value"><?= $this->userLink($this->note->author->slug, $this->note->author->name) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('updated_by') ?>:</div>
+                <div class="value"><?= $this->userLink($this->note->changer->slug, $this->note->changer->name) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('created_at') ?>:</div>
+                <div class="content"><?= $this->date($this->note->create_time) ?></div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('updated_at') ?>:</div>
+                <div class="content"><?= $this->date($this->note->update_time) ?></div>
+            </div>
+        </div>
+    </div>

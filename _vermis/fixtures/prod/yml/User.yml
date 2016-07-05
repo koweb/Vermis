@@ -1,0 +1,10 @@
+---
+User:
+    user_admin:
+        id:             1
+        login:          'admin'
+        name:           'Administrator'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('admin'); ?>"
+        email:          'admin@your-domain.tld'
+        role:           "<?= User::ROLE_ADMIN ?>"
+   

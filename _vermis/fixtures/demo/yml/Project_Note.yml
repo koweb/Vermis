@@ -1,0 +1,28 @@
+---
+Project_Note:
+
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project1_note<?= $i ?>:
+        author:     user_admin
+        title:      "note <?= $i ?> <?= FreeCode_String::random(4) ?>"
+        content:    "<?= FreeCode_String::random(20) ?>"
+        project:    project1
+<? endfor ?>        
+   
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project2_note<?= $i ?>:
+        author:     user_admin
+        title:      "note <?= $i ?> <?= FreeCode_String::random(4) ?>"
+        content:    "<?= FreeCode_String::random(20) ?>"
+        project:    project2
+<? endfor ?>        
+   
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project3_note<?= $i ?>:
+        author:     user_admin
+        title:      "note <?= $i ?> <?= FreeCode_String::random(4) ?>"
+        content:    "<?= FreeCode_String::random(20) ?>"
+        project:    project3
+<? endfor ?>        
+   
+     

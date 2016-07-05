@@ -1,0 +1,88 @@
+---
+Project_Issue:
+
+    project1_issue1:
+        number:         1
+        title:          'Issue 1'
+        description:    'Issue 1 description'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component1
+        assignee:       user_dev1
+        reporter:       user_admin
+        progress:       0
+        type:           '<?= Project_Issue::TYPE_TASK ?>'
+        status:         '<?= Project_Issue::STATUS_OPENED ?>'
+        priority:       '<?= Project_Issue::PRIORITY_POSTPONED ?>'
+
+    project1_issue2:
+        number:         2
+        title:          'Issue 2'
+        description:    'Issue 2 description'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component1
+        assignee:       user_dev1
+        reporter:       user_admin
+        progress:       10
+        type:           '<?= Project_Issue::TYPE_BUG ?>'
+        status:         '<?= Project_Issue::STATUS_IN_PROGRESS ?>'
+        priority:       '<?= Project_Issue::PRIORITY_LOW ?>'
+
+    project1_issue3:
+        number:         3
+        title:          'Issue 3'
+        description:    'Issue 3 description'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component1
+        assignee:       user_dev1
+        reporter:       user_admin
+        progress:       20
+        type:           '<?= Project_Issue::TYPE_FEATURE ?>'
+        status:         '<?= Project_Issue::STATUS_RESOLVED ?>'
+        priority:       '<?= Project_Issue::PRIORITY_NORMAL ?>'
+
+    project1_issue4:
+        number:         4
+        title:          'Issue 4'
+        description:    'Issue 4 description'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component1
+        assignee:       user_dev1
+        reporter:       user_admin
+        progress:       30
+        type:           '<?= Project_Issue::TYPE_IMPROVEMENT ?>'
+        status:         '<?= Project_Issue::STATUS_CLOSED ?>'
+        priority:       '<?= Project_Issue::PRIORITY_HIGH ?>'
+
+    project1_issue5:
+        number:         5
+        title:          'Issue 5'
+        description:    'Issue 5 description'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component1
+        assignee:       user_dev1
+        reporter:       user_admin
+        progress:       40
+        type:           '<?= Project_Issue::TYPE_REFACTORING ?>'
+        status:         '<?= Project_Issue::STATUS_CLOSED ?>'
+        priority:       '<?= Project_Issue::PRIORITY_CRITICAL ?>'
+
+<? for ($i = 1; $i <= 40; $i++): ?>
+    project2_issue<?= $i ?>:
+        number:         '<?= $i ?>'
+        title:          'Issue'
+        description:    'Issue description'
+        project:        project2
+        milestone:      project2_milestone1
+        component:      project2_component1
+        assignee:       user_dev1
+        reporter:       user_admin
+        progress:       100
+        type:           '<?= Project_Issue::TYPE_REFACTORING ?>'
+        status:         '<?= Project_Issue::STATUS_CLOSED ?>'
+        priority:       '<?= Project_Issue::PRIORITY_CRITICAL ?>'
+<? endfor ?>

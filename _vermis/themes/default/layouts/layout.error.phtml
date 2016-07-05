@@ -1,0 +1,10 @@
+<?php /* $Id: layout.error.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?= $this->render('_header.phtml') ?>
+
+<?= $this->render('_flash_messages.phtml') ?>
+
+<div id="content-box">
+    <?= $this->layout()->content ?>
+</div>
+
+<?= $this->render('_footer.phtml') ?>

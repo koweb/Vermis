@@ -1,0 +1,13 @@
+<?php /* $Id: _record_menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+$menu = array();
+if ($this->identity) {
+    if ($this->identity->isAdmin())
+        $menu[] = array('title' => 'delete', 'url' => $this->url(array('project_slug' => $this->project->slug, 'note_slug' => $this->note->slug), 'project/notes/delete'), 'action' => 'delete', 'confirm' => true, 'float' => 'right');
+    if ($this->projectRole != Project_Member::ROLE_OBSERVER)
+        $menu[] = array('title' => 'edit', 'url' => $this->url(array('project_slug' => $this->project->slug, 'note_slug' => $this->note->slug), 'project/notes/edit'), 'action' => 'edit', 'icon' => 'edit', 'float' => 'right');
+}
+$menu[] = array('title' => 'history', 'url' => $this->url(array('project_slug' => $this->project->slug, 'note_slug' => $this->note->slug), 'project/notes/history'), 'action' => 'history', 'float' => 'right');
+$menu[] = array('title' => 'show', 'url' => $this->url(array('project_slug' => $this->project->slug, 'note_slug' => $this->note->slug), 'project/notes/show'), 'action' => 'show', 'float' => 'right');
+?>
+<?= $this->actionMenu($menu) ?>

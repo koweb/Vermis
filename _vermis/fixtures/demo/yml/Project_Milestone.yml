@@ -1,0 +1,25 @@
+---
+Project_Milestone:
+
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project1_milestone<?= $i ?>:
+        author: user_admin
+        name:   "milestone <?= $i ?>"
+        project: project1
+<? endfor ?>        
+   
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project2_milestone<?= $i ?>:
+        author: user_admin
+        name:   "milestone <?= $i ?>"
+        project: project2
+<? endfor ?>        
+   
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project3_milestone<?= $i ?>:
+        author: user_admin
+        name:   "milestone <?= $i ?>"
+        project: project3
+<? endfor ?>        
+   
+     

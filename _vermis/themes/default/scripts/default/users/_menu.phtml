@@ -1,0 +1,8 @@
+<?php /* $Id: _menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+$menu = array();
+$menu[] = array('title' => 'browse_users', 'url' => $this->url(array(), 'users'), 'action' => 'index');
+if ($this->identity->isAdmin())
+    $menu[] = array('title' => 'create_a_new_user', 'url' => $this->url(array(), 'users/new'), 'action' => 'new');
+?>
+<?= $this->actionMenu($menu) ?>

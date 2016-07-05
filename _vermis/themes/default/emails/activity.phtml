@@ -1,0 +1,33 @@
+<?php /* $Id: activity.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?= $this->render('_header.phtml') ?>
+<? $hasComment = (isset($this->misc) && isset($this->misc['comment'])) ?>
+
+<a href="<?= $this->config->baseHost ?><?= $this->url(array('user_slug' => $this->user->slug), 'users/show') ?>"><?= $this->user->name ?></a>
+<?= _T($this->resourceType.' '.$this->action) ?>: 
+<a href="<?= $this->config->baseHost ?><?= $this->logUrl($this->resourceType, $this->params) ?>"><?= $this->message ?></a>
+
+<br />
+
+<? if ($hasComment): ?>
+    <div style="padding:20px;"><q><?= $this->superEscape($this->misc['comment']) ?></q></div>
+<? endif ?>
+
+<?
+switch ($this->resourceType) {
+    case Log::TYPE_PROJECT: $fields = ChangeProcessor::$projectFields; break;
+    case Log::TYPE_COMPONENT: $fields = ChangeProcessor::$componentFields; break;
+    case Log::TYPE_ISSUE: $fields = ChangeProcessor::$issueFields; break;
+    case Log::TYPE_MILESTONE: $fields = ChangeProcessor::$milestoneFields; break;
+    case Log::TYPE_NOTE: $fields = ChangeProcessor::$noteFields; break;
+    default: $fields = array();
+}
+?>
+
+<? if (!empty($this->changes) && !$hasComment): ?>
+    <?= $this->partial('_changes.phtml', array(
+        'changes' => $this->changes,
+        'fields' => $fields
+    )) ?>
+<? endif ?>
+
+<?= $this->render('_footer.phtml') ?>

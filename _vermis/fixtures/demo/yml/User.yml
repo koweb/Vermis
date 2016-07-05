@@ -1,0 +1,37 @@
+---
+User:
+    user_admin:
+        id:             1
+        login:          'admin'
+        name:           'Administrator'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('admin'); ?>"
+        email:          'admin@your-domain.tld'
+        role:           "<?= User::ROLE_ADMIN ?>"
+
+    user_demo:
+        login:          'demo'
+        name:           'Demonstration'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('demo'); ?>"
+        email:          'demo@your-domain.tld'
+        role:           "<?= User::ROLE_USER ?>"
+
+<? for ($i = 1; $i <= 30; $i++): ?>
+    user_dev<?= $i ?>:
+        login:          'dev<?= $i ?>'
+        name:           'Developer <?= $i ?>'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('dev'); ?>"
+        email:          'dev<?= $i ?>@your-domain.tld'
+        role:           "<?= User::ROLE_USER ?>"
+<? endfor ?>
+
+<? for ($i = 1; $i <= 3; $i++): ?>
+    user_lead<?= $i ?>:
+        login:          'lead<?= $i ?>'
+        name:           'Leader <?= $i ?>'
+        password_hash:  "<?= FreeCode_Hash::encodePassword('lead'); ?>"
+        email:          'lead<?= $i ?>@your-domain.tld'
+        role:           "<?= User::ROLE_USER ?>"
+<? endfor ?>
+
+
+   

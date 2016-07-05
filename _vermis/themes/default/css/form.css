@@ -1,0 +1,139 @@
+/* $Id: form.css 96 2011-01-05 20:55:00Z cepa $ */
+
+@CHARSET "UTF-8";
+
+.freecode_form { padding:8px 30px; margin:10px; }
+.freecode_form .container { padding:3px; margin-bottom:6px; }
+.freecode_form .element, 
+#form_search input,
+#form_little_login input { 
+	font-size:12px; 
+	border:1px solid #aaaaaa; 
+	padding:2px; 
+	color:#000000; 
+	background:#ffffff url('../gfx/form/input_bg.png') repeat-x; 
+}
+.freecode_form .element:hover,
+#form_search input:hover,
+#form_little_login input:hover { border:1px solid #666666; }
+.freecode_form .label { display:block; width:80px; float:left; text-align:right; font-size:0.9em; color:#444444; line-height:1em; padding-top:5px; }
+.freecode_form .label.required { font-weight:bold; }
+.freecode_form .box { margin-left:90px; }
+.freecode_form .description { margin-left:210px; font-size:0.9em; color:#444444; }
+.freecode_form .errors { margin-left:210px; font-size:0.9em; font-weight:bold; color:#ff0000; }
+.freecode_form button.element.submit, 
+.freecode_form button.element.reset,
+#form_search button,
+#form_little_login button { 
+	cursor:pointer; 
+	padding:2px 15px; 
+	font-size:10px; 
+	font-weight:bold; 
+	letter-spacing:1px; 
+	color:#ffffff; 
+	border-top:1px solid #167cdc; 
+    border-left:1px solid #167cdc; 
+    border-bottom:1px solid #283847; 
+    border-right:1px solid #283847; 
+	background:#10497e; 
+	padding:4px 15px; 
+}
+.freecode_form button.element.submit:hover, 
+.freecode_form button.element.reset:hover,
+#form_search button:hover,
+#form_little_login button:hover { 
+    border-top:1px solid #6fd1ff; 
+    border-left:1px solid #6fd1ff; 
+    border-bottom:1px solid #054f72; 
+    border-right:1px solid #054f72; 
+	background:#077dcf; 
+}
+.freecode_form input.text,
+.freecode_form input.password
+{ width:200px; }
+.freecode_form textarea, 
+.freecode_form input.text,
+.freecode_form input.password 
+{ width:100%; padding:4px 5px; }
+.freecode_form .display_group { padding-bottom:10px; }
+.freecode_form .display_group .elements { padding:0 20px; }
+.freecode_form .display_group .legend { font-weight:bold; padding:4px; font-size:1.2em; color:#aaaaaa; letter-spacing:1px; }
+
+.freecode_form .display_group.red { background:#ffe1e1; color:#000000; }
+.freecode_form .display_group.red .legend { color:#e59696; }
+
+.freecode_form .display_group.green { background:#e2ffe1; color:#000000; }
+.freecode_form .display_group.green .legend { color:#82d280; }
+
+.freecode_form .display_group.blue { background:#dfe3ff; color:#000000; }
+.freecode_form .display_group.blue .legend { color:#a1a9d7; }
+
+.freecode_form .display_group.yellow { background:#fffedc; color:#000000; }
+.freecode_form .display_group.yellow .legend { color:#cbc884; }
+
+.freecode_form .display_group.orange { background:#fff3db; color:#000000; }
+.freecode_form .display_group.orange .legend { color:#d0b575; }
+
+.freecode_form .display_group.light_grey { background:#efefef; color:#000000; }
+.freecode_form .display_group.light_grey .legend { color:#c0c0c0; }
+
+.freecode_form.center { text-align:center; }
+.freecode_form.center .description, 
+.freecode_form.center .errors
+{ margin: 0; }
+
+.freecode_form .box.checkbox { float:left; padding-right:5px; }
+
+#form_login { width:380px; padding:10px 0 0 0; }
+#form_login .label { width:80px; }
+#form_login .box { margin-left:90px; text-align:left; }
+#form_login .box.submit { margin:0; text-align:center; }
+#form_login input.text,
+#form_login input.password
+{ width:250px; }
+
+#form_remindpassword { width:480px; padding:10px 0 0 0; margin:0 auto; }
+#form_remindpassword .label { width:80px; }
+#form_remindpassword .box { margin-left:90px; text-align:left; }
+#form_remindpassword .box.submit { margin:0; text-align:center; }
+#form_remindpassword .errors { margin-top:5px; }
+#form_remindpassword #email
+{ width:300px; }
+
+#form_project_member { width:200px; padding:0; }
+#form_project_member .label { width:30px; text-align:right; }
+#form_project_member .box, 
+#form_project_member .description, 
+#form_project_member .errors 
+{ margin-left:35px; padding:1px; }
+#form_project_member .container { margin:1px; padding:0; } 
+#form_project_member .element { font-size:10px; }
+#form_project_member button { padding:2px 6px; font-size:10px; }
+
+#form_upload { width:200px; padding:0; }
+#form_upload .label { width:30px; text-align:right; }
+#form_upload .box, 
+#form_upload .description, 
+#form_upload .errors 
+{ margin-left:35px; padding:1px; }
+#form_upload .container { margin:1px; padding:0; } 
+#form_upload .element { font-size:10px; }
+#form_upload dd { margin:0; padding:0; }
+#form_upload .box.submit { margin:0; }
+#form_upload button { padding:2px 6px; font-size:10px; }
+#form_upload label { font-weight:bold; }
+#form_upload input { width:210px; }
+	
+#form_comment { margin:0 10px; padding:0; }
+#form_comment .label { float:none; text-align:left; }
+#form_comment .textarea { margin:0; }
+#form_comment .element { margin:0; }
+#form_comment .box.submit { margin:0; }
+
+#form_search { padding:3px; }
+#form_search button { padding:2px 6px; font-size:10px; }
+#form_search input { font-size:10px; width:150px; padding:2px; }
+
+#form_little_login { padding:1px; }
+#form_little_login input { width:120px; font-size:10px; height:12px; }
+#form_little_login button { height:18px; padding:0 10px 2px 10px; font-size:10px; }

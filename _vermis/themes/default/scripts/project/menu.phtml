@@ -1,0 +1,217 @@
+<?php /* $Id: menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+
+$p = array('project_slug' => $this->project->slug);
+
+if ($this->identity && ($this->identity->isAdmin() || $this->projectRole != Project_Member::ROLE_OBSERVER)) {
+    $menu = array(
+
+        'dashboard' => array(
+            'title' => 'dashboard',
+            'url' => $this->url(array(), 'index')
+        ),
+    
+        'index' => array(
+            'title' => 'project',
+            'url' => $this->url($p, 'project'),
+        	'submenu' => array(
+                array(
+                	'title' => 'browse_projects',
+                    'url' => $this->url(array(), 'projects')
+                ),
+                array(
+                    'title' => 'create_a_new_project', 
+                    'url' => $this->url(array(), 'projects/new'),
+                	'role' => User::ROLE_ADMIN
+                )
+            )
+        ),
+    
+        'issues' => array(
+            'title' => 'issues',
+            'url' => $this->url($p, 'project/issues'),
+            'submenu' => array(
+                array(
+                    'title' => 'issues_navigator',
+                	'url' => $this->url($p, 'project/issues')
+                ),
+                array(
+                    'title' => 'create_a_new_issue', 
+                    'url' => $this->url($p, 'project/issues/new')
+                )
+            )
+        ),
+    
+        'notes' => array(
+            'title' => 'notes',
+            'url' => $this->url($p, 'project/notes'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_notes',
+                	'url' => $this->url($p, 'project/notes')
+                ),
+                array(
+                    'title' => 'create_a_new_note', 
+                    'url' => $this->url($p, 'project/notes/new')
+                )
+            )
+        ),
+    
+        'milestones' => array(
+            'title' => 'milestones',
+            'url' => $this->url($p, 'project/milestones'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_milestones',
+                	'url' => $this->url($p, 'project/milestones')
+                ),
+                array(
+                    'title' => 'create_a_new_milestone', 
+                    'url' => $this->url($p, 'project/milestones/new')
+                )
+            )
+        ),
+
+        'components' => array(
+            'title' => 'components',
+            'url' => $this->url($p, 'project/components'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_components',
+                	'url' => $this->url($p, 'project/components')
+                ),
+                array(
+                    'title' => 'create_a_new_component', 
+                    'url' => $this->url($p, 'project/components/new')
+                )
+            )
+        ),
+
+        'members' => array(
+            'title' => 'members',
+            'url' => $this->url($p, 'project/members'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_project_members',
+                	'url' => $this->url($p, 'project/members')
+                )
+            )
+        ),
+    
+        'activity' => array(
+            'title' => 'activity',
+            'url' => $this->url($p, 'project/activity'),
+            'submenu' => array(
+                array(
+                    'title' => 'latest_activity',
+                    'url' => $this->url($p, 'project/activity')
+                )
+            )
+        )
+    
+    );
+    
+} else {
+    
+    $menu = array(
+
+        'dashboard' => array(
+            'title' => 'dashboard',
+            'url' => $this->url(array(), 'index')
+        ),
+    
+        'index' => array(
+            'title' => 'project',
+            'url' => $this->url($p, 'project'),
+        	'submenu' => array(
+                array(
+                	'title' => 'browse_projects',
+                    'url' => $this->url(array(), 'projects')
+                ),
+                array(
+                    'title' => 'create_a_new_project', 
+                    'url' => $this->url(array(), 'projects/new'),
+                	'role' => User::ROLE_ADMIN
+                )
+            )
+        ),
+    
+        'issues' => array(
+            'title' => 'issues',
+            'url' => $this->url($p, 'project/issues'),
+            'submenu' => array(
+                array(
+                    'title' => 'issues_navigator',
+                	'url' => $this->url($p, 'project/issues')
+                ),
+                array(
+                    'title' => 'create_a_new_issue', 
+                    'url' => $this->url($p, 'project/issues/new')
+                )
+            )
+        ),
+    
+        'notes' => array(
+            'title' => 'notes',
+            'url' => $this->url($p, 'project/notes'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_notes',
+                	'url' => $this->url($p, 'project/notes')
+                )
+            )
+        ),
+    
+        'milestones' => array(
+            'title' => 'milestones',
+            'url' => $this->url($p, 'project/milestones'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_milestones',
+                	'url' => $this->url($p, 'project/milestones')
+                )
+            )
+        ),
+
+        'components' => array(
+            'title' => 'components',
+            'url' => $this->url($p, 'project/components'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_components',
+                	'url' => $this->url($p, 'project/components')
+                )
+            )
+        ),
+
+        'members' => array(
+            'title' => 'members',
+            'url' => $this->url($p, 'project/members'),
+            'submenu' => array(
+                array(
+                    'title' => 'browse_project_members',
+                	'url' => $this->url($p, 'project/members')
+                )
+            )
+        ),
+    
+        'activity' => array(
+            'title' => 'activity',
+            'url' => $this->url($p, 'project/activity'),
+            'submenu' => array(
+                array(
+                    'title' => 'latest_activity',
+                    'url' => $this->url($p, 'project/activity')
+                )
+            )
+        )
+    
+    );
+    
+}
+?>
+
+<div class="csmenu">
+    <?= $this->jQueryCascadingMenu($menu) ?>
+    <?= $this->render('_search.phtml') ?>
+</div>

@@ -1,0 +1,29 @@
+<?php /* $Id: _menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+
+$menu = array();
+$menu[] = array('title' => 'browse_other_projects', 'url' => $this->url(array(), 'projects'), 'float' => 'left');
+
+if ($this->identity) {
+    
+    if ($this->identity->isAdmin())
+        $menu[] = array('title' => 'create_a_new_project', 'url' => $this->url(array(), 'projects/new'), 'float' => 'left');
+
+    if ($this->identity->isMemberOf($this->project->id))
+        $menu[] = array('title' => 'leave', 'url' => $this->url(array('project_slug' => $this->project['slug']), 'project/members/leave'), 'float' => 'right');
+    else
+        $menu[] = array('title' => 'join', 'url' => $this->url(array('project_slug' => $this->project['slug']), 'project/members/join'), 'float' => 'right');
+
+    if ($this->identity->isAdmin())
+        $menu[] = array('title' => 'delete', 'url' => $this->url(array('project_slug' => $this->project['slug']), 'project/index/delete'), 'confirm' => true, 'float' => 'right');
+    if ($this->identity->isAdmin() || $this->projectRole != Project_Member::ROLE_OBSERVER)
+        $menu[] = array('title' => 'edit', 'url' => $this->url(array('project_slug' => $this->project['slug']), 'project/index/edit'), 'action' => 'edit', 'float' => 'right');
+}
+
+$menu[] = array('title' => 'history', 'url' => $this->url(array('project_slug' => $this->project['slug']), 'project/index/history'), 'action' => 'history', 'float' => 'right');
+$menu[] = array('title' => 'dashboard', 'url' => $this->url(array('project_slug' => $this->project['slug']), 'project'), 'action' => 'index', 'float' => 'right');
+
+?>
+<div class="action-menu">
+    <?= $this->actionMenu($menu) ?>
+</div>

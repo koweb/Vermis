@@ -1,0 +1,9 @@
+<?
+$menu = array(
+    array('title' => 'Link 1', 'url' => 'link1', 'float' => 'left'),
+    array('title' => 'Link 2', 'url' => 'link2', 'action' => 'index', 'float' => 'right')
+);
+?>
+<div class="action-menu">
+    <?= $this->actionMenu($menu) ?>
+</div>

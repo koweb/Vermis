@@ -1,0 +1,28 @@
+---
+Project_Milestone:
+
+    project1_milestone1:
+        name:   "0.1"
+        project: project1
+        author:  admin
+        
+    project1_milestone2:
+        name:   "0.2"
+        project: project1
+        author:  admin
+        
+    project1_milestone3:
+        name:   "0.3 beta"
+        project: project1
+        author:  admin
+
+    project2_milestone1:
+        name:   "0.1"
+        project: project2
+        author:  admin
+        
+    project2_milestone2:
+        name:   "0.2"
+        project: project2
+        author:  admin
+               

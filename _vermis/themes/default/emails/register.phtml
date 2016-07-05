@@ -1,0 +1,8 @@
+<?php /* $Id: register.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?= $this->render('_header.phtml') ?>
+
+<?= _T('your_account_has_been_created')?><br />
+<?= _T('please_click')?> <a href="<?= $this->config->baseHost ?><?= $this->url(array('user_slug' => $this->user->slug, 'hash' => $this->user->confirm_hash), 'users/activate') ?>"><?= _T('here')?></a>
+<?= _T('to_activate_your_account')?>.
+
+<?= $this->render('_footer.phtml') ?>

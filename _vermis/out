@@ -1,0 +1,557 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: vermis_test
+-- ------------------------------------------------------
+-- Server version	5.0.51a-24+lenny4
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `log`
+--
+
+DROP TABLE IF EXISTS `log`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `log` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `time` bigint(20) default NULL,
+  `user_id` bigint(20) default NULL,
+  `project_id` bigint(20) default NULL,
+  `resource_id` bigint(20) NOT NULL,
+  `resource_type` varchar(16) NOT NULL,
+  `action` varchar(24) NOT NULL,
+  `message` text,
+  `params` text,
+  PRIMARY KEY  (`id`),
+  KEY `project_id_idx` (`project_id`),
+  KEY `user_id_idx` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `log`
+--
+
+LOCK TABLES `log` WRITE;
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project`
+--
+
+DROP TABLE IF EXISTS `project`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `slug` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `description` text,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `issue_counter` bigint(20) NOT NULL default '0',
+  `is_private` tinyint(1) NOT NULL default '0',
+  `version` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `slug` (`slug`),
+  UNIQUE KEY `name` (`name`),
+  KEY `project_name_idx_idx` (`name`),
+  KEY `author_id_idx` (`author_id`),
+  KEY `changer_id_idx` (`changer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project`
+--
+
+LOCK TABLES `project` WRITE;
+/*!40000 ALTER TABLE `project` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__component`
+--
+
+DROP TABLE IF EXISTS `project__component`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__component` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `slug` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `description` text,
+  `project_id` bigint(20) default NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `version` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `project__component_unique_idx_idx` (`project_id`,`slug`,`name`),
+  KEY `project_id_idx` (`project_id`),
+  KEY `author_id_idx` (`author_id`),
+  KEY `changer_id_idx` (`changer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__component`
+--
+
+LOCK TABLES `project__component` WRITE;
+/*!40000 ALTER TABLE `project__component` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__component` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__component_version`
+--
+
+DROP TABLE IF EXISTS `project__component_version`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__component_version` (
+  `id` bigint(20) NOT NULL default '0',
+  `slug` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `description` text,
+  `project_id` bigint(20) default NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `version` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__component_version`
+--
+
+LOCK TABLES `project__component_version` WRITE;
+/*!40000 ALTER TABLE `project__component_version` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__component_version` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__issue`
+--
+
+DROP TABLE IF EXISTS `project__issue`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__issue` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `project_id` bigint(20) NOT NULL,
+  `number` bigint(20) NOT NULL,
+  `milestone_id` bigint(20) default NULL,
+  `component_id` bigint(20) default NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `reporter_id` bigint(20) default NULL,
+  `assignee_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `description` text,
+  `type` varchar(16) NOT NULL default 'task',
+  `priority` bigint(20) NOT NULL default '3',
+  `status` varchar(32) NOT NULL default 'opened',
+  `progress` bigint(20) NOT NULL default '0',
+  `version` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `project__issue_unique_idx_idx` (`project_id`,`number`),
+  KEY `project_id_idx` (`project_id`),
+  KEY `milestone_id_idx` (`milestone_id`),
+  KEY `component_id_idx` (`component_id`),
+  KEY `reporter_id_idx` (`reporter_id`),
+  KEY `assignee_id_idx` (`assignee_id`),
+  KEY `changer_id_idx` (`changer_id`),
+  FULLTEXT KEY `project__issue_fts_idx_idx` (`title`,`slug`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__issue`
+--
+
+LOCK TABLES `project__issue` WRITE;
+/*!40000 ALTER TABLE `project__issue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__issue` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__issue__comment`
+--
+
+DROP TABLE IF EXISTS `project__issue__comment`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__issue__comment` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `content` text,
+  `time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `issue_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `issue_id_idx` (`issue_id`),
+  KEY `author_id_idx` (`author_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__issue__comment`
+--
+
+LOCK TABLES `project__issue__comment` WRITE;
+/*!40000 ALTER TABLE `project__issue__comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__issue__comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__issue__file`
+--
+
+DROP TABLE IF EXISTS `project__issue__file`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__issue__file` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `real_name` varchar(255) NOT NULL default '',
+  `disk_name` varchar(255) NOT NULL default '',
+  `size` bigint(20) NOT NULL default '0',
+  `mime_type` varchar(255) NOT NULL default '',
+  `md5` varchar(32) NOT NULL default '',
+  `time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `issue_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `issue_id_idx` (`issue_id`),
+  KEY `author_id_idx` (`author_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__issue__file`
+--
+
+LOCK TABLES `project__issue__file` WRITE;
+/*!40000 ALTER TABLE `project__issue__file` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__issue__file` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__issue_version`
+--
+
+DROP TABLE IF EXISTS `project__issue_version`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__issue_version` (
+  `id` bigint(20) NOT NULL default '0',
+  `project_id` bigint(20) NOT NULL,
+  `milestone_id` bigint(20) default NULL,
+  `component_id` bigint(20) default NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `reporter_id` bigint(20) default NULL,
+  `assignee_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text,
+  `type` varchar(16) NOT NULL default 'task',
+  `priority` bigint(20) NOT NULL default '3',
+  `status` varchar(32) NOT NULL default 'opened',
+  `progress` bigint(20) NOT NULL default '0',
+  `version` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__issue_version`
+--
+
+LOCK TABLES `project__issue_version` WRITE;
+/*!40000 ALTER TABLE `project__issue_version` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__issue_version` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__member`
+--
+
+DROP TABLE IF EXISTS `project__member`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__member` (
+  `project_id` bigint(20) NOT NULL default '0',
+  `user_id` bigint(20) NOT NULL default '0',
+  `role` varchar(16) default 'observer',
+  PRIMARY KEY  (`project_id`,`user_id`),
+  UNIQUE KEY `project__member_idx_idx` (`project_id`,`user_id`),
+  KEY `project__member_user_id_user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__member`
+--
+
+LOCK TABLES `project__member` WRITE;
+/*!40000 ALTER TABLE `project__member` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__member` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__milestone`
+--
+
+DROP TABLE IF EXISTS `project__milestone`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__milestone` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `slug` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `description` text,
+  `project_id` bigint(20) default NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `version` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `project__milestone_unique_idx_idx` (`project_id`,`slug`,`name`),
+  KEY `project_id_idx` (`project_id`),
+  KEY `author_id_idx` (`author_id`),
+  KEY `changer_id_idx` (`changer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__milestone`
+--
+
+LOCK TABLES `project__milestone` WRITE;
+/*!40000 ALTER TABLE `project__milestone` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__milestone` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__milestone_version`
+--
+
+DROP TABLE IF EXISTS `project__milestone_version`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__milestone_version` (
+  `id` bigint(20) NOT NULL default '0',
+  `slug` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `description` text,
+  `project_id` bigint(20) default NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `version` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__milestone_version`
+--
+
+LOCK TABLES `project__milestone_version` WRITE;
+/*!40000 ALTER TABLE `project__milestone_version` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__milestone_version` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__note`
+--
+
+DROP TABLE IF EXISTS `project__note`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__note` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `project_id` bigint(20) NOT NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `title` varchar(128) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `content` text,
+  `version` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `project__note_unique_idx_idx` (`project_id`,`slug`,`title`),
+  KEY `project_id_idx` (`project_id`),
+  KEY `author_id_idx` (`author_id`),
+  KEY `changer_id_idx` (`changer_id`),
+  FULLTEXT KEY `project__note_fts_idx_idx` (`title`,`slug`,`content`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__note`
+--
+
+LOCK TABLES `project__note` WRITE;
+/*!40000 ALTER TABLE `project__note` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__note` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project__note_version`
+--
+
+DROP TABLE IF EXISTS `project__note_version`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project__note_version` (
+  `id` bigint(20) NOT NULL default '0',
+  `project_id` bigint(20) NOT NULL,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `title` varchar(128) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `content` text,
+  `version` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project__note_version`
+--
+
+LOCK TABLES `project__note_version` WRITE;
+/*!40000 ALTER TABLE `project__note_version` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project__note_version` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project_version`
+--
+
+DROP TABLE IF EXISTS `project_version`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `project_version` (
+  `id` bigint(20) NOT NULL default '0',
+  `author_id` bigint(20) default NULL,
+  `changer_id` bigint(20) default NULL,
+  `name` varchar(128) NOT NULL,
+  `description` text,
+  `create_time` bigint(20) default NULL,
+  `update_time` bigint(20) default NULL,
+  `is_private` tinyint(1) NOT NULL default '0',
+  `version` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `project_version`
+--
+
+LOCK TABLES `project_version` WRITE;
+/*!40000 ALTER TABLE `project_version` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project_version` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `login` varchar(64) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `password_hash` varchar(32) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `confirm_hash` varchar(32) NOT NULL,
+  `status` varchar(16) NOT NULL default 'active',
+  `role` varchar(16) NOT NULL default 'user',
+  `last_login_time` bigint(20) default NULL,
+  `last_login_ip` varchar(32) NOT NULL default '0.0.0.0',
+  `last_user_agent` varchar(128) NOT NULL default '',
+  `create_time` bigint(20) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `email_notify` tinyint(1) default '1',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `login` (`login`),
+  UNIQUE KEY `slug` (`slug`),
+  KEY `user_idx_idx` (`login`,`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'admin','Administrator','21232f297a57a5a743894a0e4a801fc3','admin@your-domain.tld','35a05d94eb4c570b337318905ba3305b','active','admin',NULL,'0.0.0.0','',1295897882,'Administrator',1);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `version`
+--
+
+DROP TABLE IF EXISTS `version`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `version` (
+  `version` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `version`
+--
+
+LOCK TABLES `version` WRITE;
+/*!40000 ALTER TABLE `version` DISABLE KEYS */;
+INSERT INTO `version` VALUES (15);
+/*!40000 ALTER TABLE `version` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2011-01-24 19:38:13

@@ -1,0 +1,32 @@
+<?php /* $Id: _left.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+    <div class="header-box">
+        <h1><?= _T('Component') ?> <strong><?= $this->escape($this->project->name) ?>-<?= $this->escape($this->component->name) ?></strong></h1>
+    </div>
+    
+    <div class="text-frame"><p><?= $this->superEscape($this->component->description) ?></p></div>
+    
+    <div class="info-frame">        
+        <div class="header"><?= _T('details') ?></div>
+        <div class="content-box">
+            <div class="property">
+                <div class="label"><?= _T('project') ?>:</div>
+                <div class="value"><?= $this->projectLink($this->project->slug, $this->project->name) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('created_by') ?>:</div>
+                <div class="value"><?= $this->userLink($this->component->author->slug, $this->component->author->name) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('updated_by') ?>:</div>
+                <div class="value"><?= $this->userLink($this->component->changer->slug, $this->component->changer->name) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('created_at') ?>:</div>
+                <div class="content"><?= $this->date($this->component->create_time) ?></div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('updated_at') ?>:</div>
+                <div class="content"><?= $this->date($this->component->update_time) ?></div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,79 @@
+---
+Project_Issue:
+
+    issue1:
+        number:         1
+        title:          'issue 1'
+        description:    'some issue'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component1
+        assignee:       admin
+        reporter:       admin
+        
+    issue2:
+        number:         2
+        title:          'some issue 2'
+        description:    '...'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component2
+        assignee:       test_user1
+        reporter:       test_user2
+        
+    issue3:
+        number:         3
+        title:          'other issue'
+        description:    "but still i'm not sure"
+        project:        project1
+        milestone:      project1_milestone2
+        assignee:       test_user3
+        reporter:       test_user3
+
+    issue4:
+        number:         4
+        title:          'issue 1'
+        description:    'some issue'
+        project:        project1
+        milestone:      project1_milestone1
+        component:      project1_component1
+        assignee:       admin
+        reporter:       test_user1
+        status:         '<?= Project_Issue::STATUS_IN_PROGRESS ?>'
+        
+    issue21:
+        number:         1
+        title:          'issue 2 1'
+        description:    'some issue'
+        project:        project2
+        component:      project2_component1
+        milestone:      project2_milestone1
+        assignee:       test_user1
+        reporter:       test_user1
+        
+    issue22:
+        number:         2
+        title:          'some issue 2'
+        description:    '...'
+        project:        project2
+        milestone:      project2_milestone1
+        assignee:       test_user1
+        reporter:       test_user2
+        
+    issue71:
+        number:         1
+        title:          '測試任務'
+        description:    '描述測試任務'
+        project:        project7
+        assignee:       test_user1
+        reporter:       test_user2
+        
+    issue81:
+        number:         1
+        title:          'งานทดสอบ'
+        description:    'รายละเอียดของงานทดสอบ'
+        project:        project8
+        assignee:       test_user1
+        reporter:       test_user2
+        
+        

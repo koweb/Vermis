@@ -1,0 +1,24 @@
+ _   _  _____ ______ ___  ___ _____  _____ 
+| | | ||  ___|| ___ \|  \/  ||_   _|/  ___|
+| | | || |__  | |_/ /| .  . |  | |  \ `--. 
+| | | ||  __| |    / | |\/| |  | |   `--. \
+\ \_/ /| |___ | |\ \ | |  | | _| |_ /\__/ /
+ \___/ \____/ \_| \_|\_|  |_/ \___/ \____/ 
+    
+    Version 1.0
+    $Id: README 109 2011-01-23 21:42:27Z cepa $                                       
+
+    Vermis :: The Issue Tracking System
+    Copyright (C) 2011 Ognisco
+    All rights reserved.
+    www.ognisco.com
+
+Welcome to Vermis the Issue Tracking System.
+For more information, see: http://vermis.ognisco.com
+
+REQUIREMENTS:
+    - PHP 5.2.x
+    - MySQL 5.x
+    - Apache HTTPd (or compatible)
+    - mod_rewrite (or compatible)
+    

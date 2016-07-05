@@ -1,0 +1,95 @@
+/* $Id: grid.css 86 2011-01-05 20:53:36Z cepa $ */
+
+@CHARSET "UTF-8";
+
+.freecode_grid { width:100%; font-size:11px; }
+.freecode_grid .container { padding:1px; background:#dddddd; }
+.freecode_grid table { border-collapse:collapse; width:100%; }
+.freecode_grid thead td a { white-space:no-wrap; color:#ffffff; }
+.freecode_grid thead td a:hover, 
+.freecode_grid thead td a.active 
+{ color:#fff600; }
+.freecode_grid .slim { width:1%; }
+.freecode_grid .small { font-size:0.8em; }
+.freecode_grid .strong { font-weight:bold; }
+.freecode_grid .bg1 { background:#f0f0f0; }
+.freecode_grid .bg1 td { border-bottom:1px solid #a0a0a0; border-left:1px solid #c0c0c0; border-right:1px solid #c0c0c0; }
+.freecode_grid .bg0 { background:#e0e0e0; }
+.freecode_grid .bg0 td { border-bottom:1px solid #a0a0a0; border-left:1px solid #b0b0b0; border-right:1px solid #b0b0b0; }
+.freecode_grid tbody tr:hover { background:#e2edf8; }
+.freecode_grid tbody td { padding:1px 2px; vertical-align:text-top; }
+.freecode_grid .arrows { float:right; width:15px; height:20px; }
+.freecode_grid .arrows.none { background:url('../gfx/grid/none.png') no-repeat; }
+.freecode_grid .arrows.asc  { background:url('../gfx/grid/asc.png') no-repeat; }
+.freecode_grid .arrows.desc { background:url('../gfx/grid/desc.png') no-repeat; }
+.freecode_grid .pager { text-align:center; font-size:11px; display:inline-block; }
+.freecode_grid .pager a { margin:0 2px; color:#888888; }
+.freecode_grid .pager a:hover, .freecode_grid .pager a.active { color:#000000; }
+.freecode_grid thead td, .freecode_grid tbody td.idx { 
+    white-space:no-wrap; 
+    text-align:left; 
+    font-weight:normal; 
+    font-size:11px; 
+    font-weight:bold; 
+    line-height:19px; 
+    color:#ffffff; 
+    padding:1px 4px; 
+    border-top:1px solid #009cff; 
+    border-left:1px solid #009cff; 
+    border-bottom:1px solid #0d3c5a; 
+    border-right:1px solid #0d3c5a; 
+    background:#1177d7; 
+}
+.freecode_grid tbody td.idx { text-align:right; }
+
+.freecode_grid .button { 
+	float:right; 
+    border:1px solid #e0e0e0; 
+    padding:0px 5px; 
+    height:15px; 
+    line-height:13px; 
+    background:#ffffff url('../gfx/action_menu_bg.png') repeat-x; 
+    text-decoration:none; 
+    color:#05255a; 
+    margin-left:2px; 
+    float:left; 
+    margin:1px;
+    margin:1px;
+}
+.freecode_grid .button:hover { 
+	color:#963c00; 
+	border:1px solid #c0c0c0; 
+	background:#e0e0e0 url('../gfx/action_menu_bg_hover.png') repeat-x; 
+}
+
+.freecode_grid .toolbar.top { 
+    border-bottom:1px solid #dddddd; 
+    height:24px; 
+    margin-bottom:2px;
+}
+.freecode_grid .toolbar.bottom {
+	height:18px;
+	border:1px solid #dddddd;
+	background:#eeeeee;
+	font-size:11px;
+	font-weight:normal; 
+	padding:2px;
+	line-height:18px;
+	text-align:center;
+	text-align:center;
+}
+
+.freecode_grid .label { margin:0 2px; }
+
+.freecode_grid .label { margin:0 2px; }
+
+.freecode_grid .toolbar.top .label { font-size:17px; font-weight:bold; color:#203ea1; }
+.freecode_grid .toolbar.top .label strong { color:#5479ef; }
+.freecode_grid .toolbar.top .label a { color:#963C00; }
+	
+.freecode_grid select { font-size:10px; margin:0; padding:0; }
+
+.freecode_grid tbody td.filter { padding:0; margin:0; background:#a5cfff; }
+.freecode_grid tbody td select { margin:0; padding:0; width:100%; border:1px solid #0078ff; background:#d4e8ff; }
+.freecode_grid tbody td select:hover { border:1px dotted #0078ff; cursor:pointer; }
+

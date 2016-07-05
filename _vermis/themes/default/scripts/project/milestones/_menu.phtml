@@ -1,0 +1,10 @@
+<?php /* $Id: _menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+$menu = array();
+$menu[] = array('title' => 'browse_milestones', 'url' => $this->url(array('project_slug' => $this->project->slug), 'project/milestones'), 'action' => 'index');
+
+if ($this->identity && ($this->identity->isAdmin() || $this->projectRole != Project_Member::ROLE_OBSERVER)) {
+    $menu[] = array('title' => 'create_a_new_milestone', 'url' => $this->url(array('project_slug' => $this->project->slug), 'project/milestones/new'), 'action' => 'new');
+}
+?>
+<?= $this->actionMenu($menu) ?>

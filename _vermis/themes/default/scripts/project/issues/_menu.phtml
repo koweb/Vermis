@@ -1,0 +1,7 @@
+<?php /* $Id: _menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+$menu = array();  
+$menu[] = array('title' => 'issues_navigator', 'url' => $this->url(array('project_slug' => $this->project->slug), 'project/issues'), 'action' => 'index');
+$menu[] = array('title' => 'create_a_new_issue', 'url' => $this->url(array('project_slug' => $this->project->slug), 'project/issues/new'), 'action' => 'new');
+?>
+<?= $this->actionMenu($menu) ?>

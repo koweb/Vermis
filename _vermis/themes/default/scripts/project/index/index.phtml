@@ -1,0 +1,23 @@
+<?php /* $Id: index.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?= $this->render('index/_menu.phtml') ?>
+
+<div class="index-left-box">
+    <?= $this->render('index/_left.phtml') ?>
+</div>
+
+<div class="index-main-box">
+
+    <? if ($this->identity): ?>
+        <?= $this->myGrid ?>
+        <div style="height:20px;"></div>
+    <? endif ?>
+
+    <?= $this->latestGrid ?>
+    <div style="height:20px;"></div>
+
+    <div class="header-box">
+        <h1><?= _T('latest_activity') ?></h1>
+    </div>
+    <?= $this->partial('_log.phtml', array('log' => $this->activity)) ?>
+</div>
+

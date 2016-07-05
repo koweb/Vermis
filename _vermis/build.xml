@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!-- $Id: build.xml 86 2011-01-05 20:53:36Z cepa $ -->
+
+<project name="vermis" default="dummy" basedir=".">
+
+    <property file="./build.properties"/>
+
+    <!-- Dummy -->
+    <target name="dummy"
+            description="Dummy! Do nothing :P">
+    </target>
+
+    <!-- Clean -->
+    <target name="clean"
+        description="Clean">
+        <delete dir="./upload" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="./captcha" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="./log" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="./test/results" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="./test/coverage" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="./doc/html" includeemptydirs="true" verbose="true" failonerror="true" />
+    </target>
+  
+    <!-- Prepare -->
+    <target name="prepare" depends="clean"
+            description="Prepare">
+        <mkdir dir="./upload"/>
+        <mkdir dir="./upload/tmp"/>
+        <mkdir dir="./upload/issues"/>
+            <exec dir="./" command="chmod -R ugo=rwx upload"/>
+        <mkdir dir="./captcha"/>
+            <exec dir="./" command="chmod -R ugo=rwx captcha"/>
+        <mkdir dir="./log"/>
+            <exec dir="./" command="chmod ugo=rwx log"/>
+        <mkdir dir="./test/results"/>
+        <mkdir dir="./test/coverage"/>
+        <mkdir dir="./doc/html"/>
+    </target>
+    
+    <!-- Create database -->
+    <target name="create-database" depends="prepare"
+            description="Create database">
+        <exec 
+                command="php create-database.php" 
+                dir="./script"
+                passthru="true" 
+                checkreturn="true"/>
+    </target>
+  
+    <!-- Drop database -->
+    <target name="drop-database" depends="prepare"
+            description="Drop database">
+        <exec 
+                command="php drop-database.php" 
+                dir="./script"
+                passthru="true" 
+                checkreturn="true"/>
+    </target>
+  
+    <!-- Populate SQL fixtures -->
+    <target name="populate-sql-fixtures" depends="prepare"
+            description="Populate SQL fixtures">
+        <exec 
+                command="php populate-sql-fixtures.php" 
+                dir="./script"
+                passthru="true" 
+                checkreturn="true"/>
+    </target>
+  
+    <!-- Create tables from Doctrine models -->
+    <target name="doctrine-create-tables" depends="prepare"
+            description="Create tables from Doctrine models">
+        <exec 
+                command="php doctrine-create-tables.php" 
+                dir="./script"
+                passthru="true" 
+                checkreturn="true"/>
+    </target>
+  
+    <!-- Populate YML fixtures for Doctrine models -->
+    <target name="doctrine-populate-fixtures" depends="prepare"
+            description="Populate YML fixtures for Doctrine models">
+        <exec 
+                command="php doctrine-populate-fixtures.php" 
+                dir="./script"
+                passthru="true" 
+                checkreturn="true"/>
+    </target>
+  
+    <!-- Create database schema -->
+    <target name="create-database-schema" depends="doctrine-create-tables, doctrine-populate-fixtures, populate-sql-fixtures"
+            description="Create database schema">
+    </target>
+  
+    <!-- Test -->
+    <target name="test" depends="prepare"
+            description="Unit testing">
+        <exec 
+                command="phpunit --verbose --process-isolation --log-junit results/unit-tests.xml UnitTests" 
+                dir="./test/"  
+                passthru="true"
+                checkreturn="true"/>
+    </target>
+    
+    <!-- Selenium tests -->
+    <target name="selenium" depends="build"
+            description="Selenium testing">
+        <exec 
+                command="phpunit --verbose --process-isolation --log-junit results/selenium-tests.xml SeleniumTests" 
+                dir="./test/"  
+                passthru="true"
+                checkreturn="true"/>
+    </target>
+    
+    <!-- Dump SQL -->
+    <target name="dump-sql" depends="prepare"
+            description="Dump database to SQL file">
+        <exec 
+                command="php dump-sql.php" 
+                dir="./script"
+                passthru="true" 
+                checkreturn="true"/>
+    </target>
+  
+    <!-- Create documentation -->
+    <target name="doc" depends=""
+            description="Create documentation">
+        <exec command="doxygen" dir="./doc" checkreturn="true" />
+    </target>
+    
+    <!-- Create package -->
+    <target name="package" depends=""
+            description="Create package">
+    	<exec command="chmod +x package.sh" dir="./script" checkreturn="true" />
+        <exec command="./package.sh" dir="./script" checkreturn="true" />
+    </target>
+
+    <!-- Install -->
+    <target name="install" depends="create-database-schema"
+            description="Install">
+    </target>
+
+    <!-- Build -->
+    <target name="build" depends="drop-database, create-database, install"
+            description="Build">
+    </target>
+
+    <!-- Continous integration -->
+    <target name="ci" depends="test, build, selenium, dump-sql, doc, package"
+            description="Continous integration">
+    </target>
+
+</project>
+

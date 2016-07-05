@@ -1,0 +1,7 @@
+<?php /* $Id: _projects_list.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+    <? foreach ($this->projects as $project): ?>
+        <div class="project">
+            <?= $this->projectLink($project['slug'], $project['name']) ?>
+            <div class="description"><?= $this->superEscape($project['description']) ?></div>
+        </div>
+    <? endforeach ?>

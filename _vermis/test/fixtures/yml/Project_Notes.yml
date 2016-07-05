@@ -1,0 +1,24 @@
+---
+Project_Note:
+
+    project1_note1:
+        title:   "note 1"
+        project: project1
+        
+    project1_note2:
+        title:   "note 2"
+        project: project1
+        
+    project1_note3:
+        title:   "note 3"
+        project: project1
+
+    project2_note1:
+        title:   "note 1"
+        project: project2
+        
+    project2_note2:
+        title:   "note 2"
+        project: project2
+        
+     

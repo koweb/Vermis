@@ -1,0 +1,6 @@
+<?php /* $Id: index.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<div class="header-box"><h1><?= _T('activity') ?></h1></div>
+
+<?= $this->pager($this->pager) ?>
+<?= $this->partial('_log.phtml', array('log' => $this->activity)) ?>
+<?= $this->pager($this->pager) ?>

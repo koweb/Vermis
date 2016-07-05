@@ -1,0 +1,17 @@
+<?php /* $Id: _log.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<div class="log">
+    <? foreach ($this->log as $entry): ?>
+        <div class="entry <?= $entry['action'] ?>">
+            <div class="date"><?= $this->date($entry['time']) ?></div>
+            <div class="content">
+                <?= $this->userLink($entry['user']['slug'], $entry['user']['name']) ?>
+                <?= _T($entry['resource_type'].' '.$entry['action']) ?>
+                <a href="<?= $this->logUrl($entry['resource_type'], $entry['params']) ?>"><?= $this->escape($entry['message']) ?></a>
+                <? if ($entry['resource_type'] != Log::TYPE_PROJECT): ?>
+                    <?= _T('in_project') ?>
+                    <?= $this->projectLink($entry['project']['slug'], $entry['project']['name']) ?> 
+                <? endif ?>
+            </div>
+        </div>
+    <? endforeach ?>
+</div>

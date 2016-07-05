@@ -1,0 +1,29 @@
+---
+Project_Component:
+
+    project1_component1:
+        name:   "component 1"
+        project: project1
+        author:  admin
+        
+    project1_component2:
+        name:   "component 2"
+        project: project1
+        author:  admin
+        
+    project1_component3:
+        name:   "component 3"
+        project: project1
+        author:  admin
+
+    project2_component1:
+        name:   "component 1"
+        project: project2
+        author:  admin
+        
+    project2_component2:
+        name:   "component 2"
+        project: project2
+        author:  admin
+        
+     

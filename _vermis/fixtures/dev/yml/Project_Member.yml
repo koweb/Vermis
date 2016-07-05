@@ -1,0 +1,56 @@
+---
+
+Project_Member:
+
+    project1_obs:
+        project:    project1
+        user:       user_admin
+        role:       '<?= Project_Member::ROLE_OBSERVER ?>'
+
+    project2_obs:
+        project:    project2
+        user:       user_admin
+        role:       '<?= Project_Member::ROLE_OBSERVER ?>'
+
+    project3_obs:
+        project:    project3
+        user:       user_admin
+        role:       '<?= Project_Member::ROLE_OBSERVER ?>'
+
+    project1_lead:
+        project:    project1
+        user:       user_lead1
+        role:       '<?= Project_Member::ROLE_LEADER ?>'
+
+<? for ($i = 1; $i < 10; $i++): ?>
+    project1_dev<?= $i ?>:
+        project:    project1
+        user:       'user_dev<?= $i ?>'
+        role:       '<?= Project_Member::ROLE_DEVELOPER ?>'
+<? endfor ?>
+
+    project2_lead:
+        project:    project2
+        user:       user_lead2
+        role:       '<?= Project_Member::ROLE_LEADER ?>'
+
+<? for ($i = 1; $i < 10; $i++): ?>
+    project2_dev<?= $i ?>:
+        project:    project2
+        user:       'user_dev<?= $i + 10 ?>'
+        role:       '<?= Project_Member::ROLE_DEVELOPER ?>'
+<? endfor ?>
+
+    project3_lead:
+        project:    project3
+        user:       user_lead3
+        role:       '<?= Project_Member::ROLE_LEADER ?>'
+
+<? for ($i = 1; $i < 10; $i++): ?>
+    project3_dev<?= $i ?>:
+        project:    project3
+        user:       'user_dev<?= $i + 20 ?>'
+        role:       '<?= Project_Member::ROLE_DEVELOPER ?>'
+<? endfor ?>
+
+        

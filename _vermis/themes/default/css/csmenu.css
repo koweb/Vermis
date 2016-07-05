@@ -1,0 +1,19 @@
+/* $Id: csmenu.css 86 2011-01-05 20:53:36Z cepa $ */
+
+@CHARSET "UTF-8";
+
+.csmenu { height:28px; background:#003f79; }
+.csmenu a { text-decoration:none; display:block; }
+.csmenu div.menu { float:left; }
+.csmenu div.link a { height:28px; line-height:28px; color:#ffffff; font-weight:bold ; padding:0 15px; }
+.csmenu div.link a:hover, .csmenu div.link.active a, .csmenu div.link:hover a { color:#000000; background:#ffffff; }
+.csmenu div.submenu { display:none; position:absolute; width:200px; border:1px solid #05328f; background:#e1ecff; }
+.csmenu div.submenu.nested { left:200px; }
+.csmenu div.sublink {}
+.csmenu div.sublink a { display:block; font-size:12px; line-height:21px; color:#05255a; padding:1px 4px; background:url('../gfx/csmenu/link_bg.png'); border-bottom:1px solid #e0e0e0; }
+.csmenu div.sublink a:hover { color:#963c00; background:url('../gfx/csmenu/link_bg_hover.png'); text-decoration:underline; border-bottom:1px solid #e0e0e0; }
+.csmenu div.sublink a.arrow { background:url('../gfx/csmenu/link_arrow_bg.png'); }
+.csmenu div.sublink a.arrow:hover { background:url('../gfx/csmenu/link_arrow_bg_hover.png'); }
+.csmenu span { display:block; height:28px; width:0px; float:left; background:#05328f; }
+.csmenu a.logo { display:block; height:28px; line-height:28px; font-weight:bold; float:right; padding:0 2px 0 15px; color:#ffffff; background:#000000; }
+.csmenu a.logo-gfx { display:block; float:right; height:28px; width:28px; background:#000000 url('../gfx/logo.png') no-repeat;  padding:0 0 0 5px;}

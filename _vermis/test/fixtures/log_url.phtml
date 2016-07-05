@@ -1,0 +1,5 @@
+<?= $this->logUrl(Log::TYPE_PROJECT, array('project_slug' => 'project-1')) ?>
+<?= $this->logUrl(Log::TYPE_MILESTONE, array('project_slug' => 'project-2', 'milestone_slug' => 'milestone-a')) ?>
+<?= $this->logUrl(Log::TYPE_COMPONENT, array('project_slug' => 'project-3', 'component_slug' => 'component-a')) ?>
+<?= $this->logUrl(Log::TYPE_ISSUE, array('project_slug' => 'project-4', 'issue_number' => 123, 'issue_slug' => 'this-is-an-issue-slug')) ?>
+<?= $this->logUrl(Log::TYPE_NOTE, array('project_slug' => 'project-5', 'note_slug' => 'note-a')) ?>

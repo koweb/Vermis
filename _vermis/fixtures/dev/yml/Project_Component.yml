@@ -1,0 +1,25 @@
+---
+Project_Component:
+
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project1_component<?= $i ?>:
+        author: user_admin
+        name:   "component <?= $i ?>"
+        project: project1
+<? endfor ?>        
+   
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project2_component<?= $i ?>:
+        author: user_admin
+        name:   "component <?= $i ?>"
+        project: project2
+<? endfor ?>        
+   
+<? for ($i = 1; $i <= 5; $i++): ?>
+    project3_component<?= $i ?>:
+        author: user_admin
+        name:   "component <?= $i ?>"
+        project: project3
+<? endfor ?>        
+   
+     

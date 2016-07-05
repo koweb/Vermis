@@ -1,0 +1,14 @@
+<?php /* $Id: show.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<div class="action-menu">
+    <?= $this->render('users/_menu.phtml') ?>
+    <?= $this->render('users/_record_menu.phtml') ?>
+</div>
+
+<div class="index-left-box">
+    <?= $this->render('users/_left.phtml') ?>
+</div>
+
+<div class="index-main-box">
+    <?= $this->assignedGrid ?>
+</div>
+

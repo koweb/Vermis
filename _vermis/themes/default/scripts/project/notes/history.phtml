@@ -1,0 +1,19 @@
+<?php /* $Id: history.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<div class="action-menu">
+    <?= $this->render('notes/_menu.phtml') ?>
+    <?= $this->render('notes/_record_menu.phtml') ?>
+</div>
+
+<div class="index-left-box">
+    <?= $this->render('notes/_left.phtml') ?>
+</div>
+
+<div class="index-main-box">
+    <div class="header-box">
+        <h1><?= _T('history_of_changes') ?></h1>
+    </div>
+    <?= $this->partial('_changes.phtml', array(
+        'changes' => $this->changes,
+        'fields' => ChangeProcessor::$noteFields
+    )) ?>
+</div>

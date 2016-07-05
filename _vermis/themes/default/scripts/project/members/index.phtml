@@ -1,0 +1,30 @@
+<?php /* $Id: index.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<? if (!$this->identity): ?>
+    <?= $this->membersGrid ?>
+<? else: ?>
+
+<div class="index-left-box">
+    <div class="header-box">
+        <h1><?= _T('members') ?> <?= _T('in_project') ?> <strong><?= $this->escape($this->project->name) ?></strong></h1>
+    </div>
+    <div class="info-frame">        
+        <div class="header"><?= _T('Add a member') ?></div>
+        <div class="content-box">
+            <? if ($this->identity && $this->identity->isAdmin()): ?>
+                <? if ($this->nonMembersCount > 0): ?>
+                    <?= $this->form ?>
+                <? else: ?>
+                    <?= _T('all_available_users_are_already_in_project') ?>
+                <? endif ?>
+            <? else: ?>
+                <?= _T('you_need_to_be_an_administrator') ?>
+            <? endif ?>
+        </div>
+    </div>
+</div>
+
+<div class="index-main-box">
+    <?= $this->membersGrid ?>
+</div>
+
+<? endif ?>

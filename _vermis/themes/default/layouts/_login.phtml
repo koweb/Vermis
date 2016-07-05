@@ -1,0 +1,10 @@
+<?php /* $Id: _login.phtml 96 2011-01-05 20:55:00Z cepa $ */ ?>
+        <div id="identity-box">
+            <form id="form_little_login" action="<?= $this->url(array(), 'auth/login') ?>" method="post">
+                <img src="_vermis/themes/default/gfx/icons/16/person.png" alt=""/>
+                <input name="login" type="text" />
+                <img src="_vermis/themes/default/gfx/icons/16/password.png" alt=""/>
+                <input name="password" type="password" />
+                <button type="submit"><?= _T('log_in')?></button>
+            </form>
+        </div>

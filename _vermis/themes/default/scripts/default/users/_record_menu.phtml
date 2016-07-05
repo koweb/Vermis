@@ -1,0 +1,24 @@
+<?php /* $Id: _record_menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+if ($this->identity->id == $this->user->id) {
+    $menu = array(
+        array('title' => 'change_password', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/change-password'), 'action' => 'change-password', 'float' => 'right'),
+        array('title' => 'edit_profile', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/edit-profile'), 'action' => 'edit-profile', 'float' => 'right'),
+        array('title' => 'reported_issues', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/reported-issues'), 'action' => 'reported-issues', 'float' => 'right'),
+        array('title' => 'assigned_issues', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/show'), 'action' => 'show', 'float' => 'right')
+    );
+} else if ($this->identity->isAdmin()) {
+    $menu = array(
+        array('title' => 'delete', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/delete'), 'action' => 'delete', 'confirm' => true, 'float' => 'right'),
+        array('title' => 'edit', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/edit'), 'action' => 'edit', 'float' => 'right'),
+        array('title' => 'reported_issues', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/reported-issues'), 'action' => 'reported-issues', 'float' => 'right'),
+        array('title' => 'assigned_issues', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/show'), 'action' => 'show', 'float' => 'right')
+    );
+} else {
+    $menu = array(
+        array('title' => 'reported_issues', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/reported-issues'), 'action' => 'reported-issues', 'float' => 'right'),
+        array('title' => 'assigned_issues', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/show'), 'action' => 'show', 'float' => 'right')
+    );
+}
+?>
+<?= $this->actionMenu($menu) ?>

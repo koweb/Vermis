@@ -1,0 +1,25 @@
+<?php /* $Id: _flash_messages.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<? $messages = FreeCode_FlashMessages::getInstance()->getMessagesAndClear() ?>
+
+<? if (count($messages) > 0): ?>
+    <div id="flash-messages-box" class="popup">
+        <div class="shadow">
+            <div class="content">
+                <? foreach ($messages as $message => $flag): ?>
+                    <div><?= $this->escape(_T($message)) ?></div>
+            <? endforeach ?>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    $('document').ready(function(){
+        $('#flash-messages-box').fadeTo(2000, 1, function(){
+        	$('#flash-messages-box').fadeOut(1000);
+        });
+        $('#flash-messages-box').click(function(){
+            $('#flash-messages-box').hide();
+        });
+    });
+    </script>
+<? endif ?>

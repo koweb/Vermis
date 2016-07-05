@@ -1,0 +1,39 @@
+---
+Project:
+
+    project1:
+        author:         user_admin
+        changer:        user_admin
+        name:           'Project 1'
+        description:    'The project 1 description'
+        issue_counter:  5
+        
+    project2:
+        author:         user_admin
+        changer:        user_admin
+        name:           'Project 2'
+        description:    'The project 2 description'
+        issue_counter:  40
+        
+    project3:
+        author:         user_admin
+        changer:        user_admin
+        name:           'Project 3'
+        description:    'The project 3 description'
+        issue_counter:  15
+        
+    project4:
+        author:         user_admin
+        changer:        user_admin
+        name:           '項目'
+        description:    '這是一個測試項目'
+        issue_counter:  2
+        
+    project5:
+        author:         user_admin
+        changer:        user_admin
+        name:           'โครงการ'
+        description:    'รายละเอียดโครงการ'
+        issue_counter:  2
+        
+        

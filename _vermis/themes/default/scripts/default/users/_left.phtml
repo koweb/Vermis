@@ -1,0 +1,50 @@
+<?php /* $Id: _left.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+    <div class="header-box">
+        <h1><?= _T('user') ?> <strong><?= $this->escape($this->user->name) ?></strong></h1>
+    </div>
+    
+    <div class="info-frame">        
+        <div class="header"><?= _T('details') ?></div>
+        <div class="content-box">
+            <div class="property">
+                <div class="label"><?= _T('username') ?>:</div>
+                <div class="value"><?= $this->userLink($this->user->slug, $this->user->login) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('display_name') ?>:</div>
+                <div class="value"><?= $this->userLink($this->user->slug, $this->user->name) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('email') ?>:</div>
+                <div class="value"><a href="mailto:<?= $this->user->email ?>"><?= $this->user->email ?></a>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('role') ?>:</div>
+                <div class="value"><?= User::getRoleLabel($this->user->role) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('status') ?>:</div>
+                <div class="value"><?= User::getStatusLabel($this->user->status) ?>&nbsp;</div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('created_at') ?>:</div>
+                <div class="value"><?= $this->date($this->user->create_time) ?></div>
+            </div>
+            <div class="property">
+                <div class="label"><?= _T('last_login_at') ?>:</div>
+                <div class="value"><?= $this->date($this->user->last_login_time) ?><br /><?= $this->escape($this->user->last_login_ip) ?><br /><?= $this->escape($this->user->last_user_agent) ?></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="info-frame">        
+        <div class="header"><?= _T('projects') ?></div>
+        <div class="content-box">
+                <ul class="list">
+                    <? foreach ($this->projects as $project): ?>
+                        <li><?= $this->projectLink($project['slug'], $project['name']) ?></li>
+                    <? endforeach ?>
+                </ul>
+        </div>
+    </div>
+    

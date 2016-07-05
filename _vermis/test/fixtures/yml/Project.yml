@@ -1,0 +1,70 @@
+---
+Project:
+
+    project1:
+        author:         admin
+        changer:        admin
+        name:           'Project1'
+        description:    'This is a description of the project 1'
+        members:        [test_user1, test_user2]
+        issue_counter:  4
+
+    project2:
+        author:         admin
+        changer:        admin
+        name:           'Project2'
+        description:    'This is a description of the project 2'
+        members:        [test_user3]
+        issue_counter:  2
+        
+    project3:
+        author:         admin
+        changer:        admin
+        name:           'Project3'
+        description:    'This is a description of the project 3'
+        members:        [test_user3, test_user1]
+        issue_counter:  2
+        
+    project4:
+        author:         admin
+        changer:        admin
+        name:           'Project4'
+        description:    'This is a description of the project 4'
+        members:        [test_user2, test_user3, test_user1]
+        issue_counter:  2
+        
+    project5_private:
+        author:         admin
+        changer:        admin
+        name:           'Project5'
+        description:    'This is a description of the project 5'
+        members:        [test_user1]
+        is_private:     true
+        issue_counter:  2
+        
+    project6_private:
+        author:         admin
+        changer:        admin
+        name:           'Project6'
+        description:    'This is a description of the project 6'
+        members:        [admin, test_user2]
+        is_private:     true
+        issue_counter:  2
+        
+    project7:
+        author:         admin
+        changer:        admin
+        name:           '項目'
+        description:    '這是一個測試項目'
+        members:        [test_user1, test_user2]
+        issue_counter:  1
+        
+    project8:
+        author:         admin
+        changer:        admin
+        name:           'โครงการ'
+        description:    'รายละเอียดโครงการ'
+        members:        [test_user1, test_user2]
+        issue_counter:  1
+        
+        

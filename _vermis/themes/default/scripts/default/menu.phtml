@@ -1,0 +1,135 @@
+<?php /* $Id: menu.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<?
+
+$menu = array();
+
+if (!$this->identity) {
+    $menu['index'] = array(
+        'title' => 'home',
+        'url' => $this->url(array(), 'index')
+    );
+    
+    $menu['projects'] = array(
+        'title' => 'projects',
+        'url' => $this->url(array(), 'projects'),
+        'submenu' => array(
+            array(
+            	'title' => 'browse_projects',
+                'url' => $this->url(array(), 'projects')
+            )
+        )
+    );
+    
+    $menu['issues'] = array(
+        'title' => 'issues',
+        'url' => $this->url(array('filter_by' => '', 'filter_value' => ''), 'issues'),
+        'submenu' => array(
+            array(
+                'title' => 'issues_navigator',
+                'url' => $this->url(array(), 'issues')
+            ),
+            array(
+                'title' => 'create_a_new_issue',
+                'url' => $this->url(array(), 'issues/new')
+            )
+        )
+    );
+    
+    $menu['activity'] = array(
+        'title' => 'activity',
+        'url' => $this->url(array(), 'activity'),
+        'submenu' => array(
+            array(
+                'title' => 'latest_activity',
+                'url' => $this->url(array(), 'activity')
+            )
+        )
+    );
+    
+    $menu['login'] = array(
+        'title' => 'log_in',
+        'url' => $this->url(array(), 'auth/login'),
+        'submenu' => array(
+            array(
+                'title' => "dont_remember_your_password", 
+                'url' => $this->url(array(), 'users/remind-password')
+            ),
+            array(
+                'title' => "signup_for_a_new_account", 
+                'url' => $this->url(array(), 'users/register')
+            )
+        )
+    );
+
+} else {
+    $menu['index'] = array(
+        'title' => 'dashboard',
+        'url' => $this->url(array(), 'index')
+    );
+
+    $menu['projects'] = array(
+        'title' => 'projects',
+        'url' => $this->url(array(), 'projects'),
+        'submenu' => array(
+            array(
+            	'title' => 'browse_projects',
+                'url' => $this->url(array(), 'projects')
+            ),
+            array(
+                'title' => 'create_a_new_project', 
+                'url' => $this->url(array(), 'projects/new'),
+                'role' => User::ROLE_ADMIN
+            )
+        )
+    );
+    
+    $menu['issues'] = array(
+        'title' => 'issues',
+        'url' => $this->url(array('filter_by' => '', 'filter_value' => ''), 'issues'),
+        'submenu' => array(
+            array(
+                'title' => 'issues_navigator',
+                'url' => $this->url(array(), 'issues')
+            ),
+            array(
+                'title' => 'create_a_new_issue',
+                'url' => $this->url(array(), 'issues/new')
+            )
+        ),
+    );
+    
+    $menu['users'] = array(
+        'title' => 'users',
+        'url' => $this->url(array(), 'users'),
+        'submenu' => array(
+            array(
+                'title' => 'browse_users',
+                'url' => $this->url(array(), 'users')
+            ),
+            array(
+                'title' => 'create_a_new_user', 
+                'url' => $this->url(array(), 'users/new'),
+                'role' => User::ROLE_ADMIN
+            )
+        )
+    );
+    
+    $menu['activity'] = array(
+        'title' => 'activity',
+        'url' => $this->url(array(), 'activity'),
+        'submenu' => array(
+            array(
+                'title' => 'latest_activity',
+                'url' => $this->url(array(), 'activity')
+            )
+        )
+    );
+    
+}
+
+?>
+
+<div class="csmenu">
+    <?= $this->jQueryCascadingMenu($menu) ?>
+    <?= $this->render('_search.phtml') ?>
+</div>

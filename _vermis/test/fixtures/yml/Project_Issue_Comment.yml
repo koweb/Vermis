@@ -1,0 +1,20 @@
+---
+
+Project_Issue_Comment:
+    
+    project_issue_comment1:
+        content:    'abc'
+        author:     admin
+        issue:      issue1
+        
+    project_issue_comment2:
+        content:    'def'
+        author:     admin
+        issue:      issue1
+        
+    project_issue_comment3:
+        content:    'xyz'
+        author:     admin
+        issue:      issue2
+        
+        

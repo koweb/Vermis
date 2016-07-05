@@ -1,0 +1,70 @@
+<?php /* $Id: show.phtml 87 2011-01-05 20:54:24Z cepa $ */ ?>
+<div class="action-menu">
+    <?= $this->render('issues/_menu.phtml') ?>
+    <?= $this->render('issues/_record_menu.phtml') ?>
+</div>
+
+<div class="index-left-box">
+    <?= $this->render('issues/_left.phtml') ?>
+</div>
+
+<div class="index-main-box">
+    <div class="header-box">
+        <a class="issue-header" href="<?= $this->url(array('project_slug' => $this->project->slug, 'issue_slug' => $this->issue->slug, 'issue_number' => $this->issue->number), 'project/issues/show') ?>"># <?= $this->escape($this->issue->title) ?></a>
+    </div>
+    <div class="text-frame">
+        <p><?= $this->superEscape($this->issue->description) ?></p>
+    </div>
+
+    <div class="header-box" style="margin-top:20px">
+        <h1><?= _T('comments') ?></h1>
+    </div>
+    
+    <div>
+        <? foreach ($this->comments as $comment): ?>
+            <div class="comment-frame">
+                <div class="header">
+                    <div class="left">
+                        <?= $this->userLink($comment['author']['slug'], $comment['author']['name']) ?>
+                        <?= _T('wrote') ?>:
+                    </div>
+                    <div class="right">
+                        <?= $this->date($comment['time']) ?>
+                        <? if ($this->identity && $this->identity->isAdmin()): ?>
+                            <?
+                            $buttons = array(
+                                array(
+                                    'title' => 'delete', 
+                                    'url' => $this->url(
+                                        array(
+                                            'project_slug' => $this->project->slug, 
+                                            'issue_number' => $this->issue->number, 
+                                            'comment_id' => $comment['id']
+                                        ), 
+                                        'project/issues_comments/delete'
+                                    ), 
+                                    'icon' => 'delete',
+                                    'confirm' => true
+                                )
+                            );
+                            ?>
+                            <?= $this->smallButtons($buttons) ?>
+                        <? endif ?>
+                    </div>
+                </div>
+                <div class="content">
+                    <?= $this->superEscape($comment['content']) ?>
+                </div>
+            </div>
+        <? endforeach ?>
+    </div>
+    
+    <? if ($this->identity): ?>
+        <div class="header-box" style="margin-top:20px">
+            <h1><?= _T('add_a_comment') ?></h1>
+        </div>
+        <div>
+            <?= $this->commentForm ?>
+        </div>
+    <? endif ?>
+</div>

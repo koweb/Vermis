@@ -1,0 +1,39 @@
+<?php /* $Id: layout.phtml 126 2011-01-29 23:37:39Z cepa $ */ ?>
+<?= $this->render('_header.phtml') ?>
+
+<div id="top-box">
+    <div style="float:right">
+        <? if ($this->identity): ?>
+            <?= $this->render('_identity.phtml') ?>
+        <? else: ?>
+            <?= $this->render('_login.phtml') ?>
+        <? endif ?>
+        <div id="big-link-box">
+            <strong style="font-size:1.5em;">+</strong> 
+            <? if ($this->project): ?>
+                <a href="<?= $this->url(array('project_slug' => $this->project->slug), 'project/issues/new') ?>" title="<?= _T('add_issue') ?>"><?= _T('add_issue') ?></a>
+            <? else:  ?>
+                <a href="<?= $this->url(array(), 'issues/new') ?>" title="<?= _T('add_issue') ?>"><?= _T('add_issue') ?></a>
+            <? endif ?>
+        </div>
+    </div>
+    <? if ($this->project && $this->actionName != 'login'): ?>
+        <div id="very-big-link-box">
+            <strong>#</strong> <?= $this->projectLink($this->project->slug, $this->project->name) ?>
+        </div>
+    <? else: ?>
+        <a id="vermis-logo" href="<?= $this->url(array(), 'index') ?>"></a>
+    <? endif ?>
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<div id="bread-crumbs-box">
+    <?= _T('you_are_here') ?>: <?= $this->breadCrumbs($this->breadCrumbs) ?>
+</div>
+<?= $this->render('_flash_messages.phtml') ?>
+
+<div id="content-box">
+    <?= $this->layout()->content ?>
+</div>
+
+<?= $this->render('_footer.phtml') ?>
