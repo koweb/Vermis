@@ -44,7 +44,7 @@ $(document).ready(function(){
 		$('input[name=<?= $msId ?>]').map(function(i, n){ $(n).attr('checked', c); });
 	});
 });
-<?
+<?php
             $this->getView()->headScript()->captureEnd();
         }
         

@@ -81,7 +81,7 @@ $(document).ready(function(){
         $.get('<?= $url ?>&filter%5B<?= $column->getFilter()->getId() ?>%5D=' + value, function(html){ $('#<?= $this->_grid->getId() ?>').html(html); });
     });
 });
-<?
+<?php
         $this->getView()->headScript()->captureEnd();
         
         return $html;

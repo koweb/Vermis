@@ -53,7 +53,7 @@ $(document).ready(function(){
         $.get('<?= $url ?>&rows=' + rows, function(html){ $('#<?= $grid->getId() ?>').html(html); });
     });
 });
-<?
+<?php
         $view->headScript()->captureEnd();
 
         return 

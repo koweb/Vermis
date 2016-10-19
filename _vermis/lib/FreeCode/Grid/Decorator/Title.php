@@ -67,7 +67,7 @@ class FreeCode_Grid_Decorator_Title extends FreeCode_Grid_Decorator_Abstract
         $view->headScript()->captureStart();
 ?>
 $(document).ready(function(){$('#<?= $id ?>').click(function(){$.get('<?= $url ?>', function(html){ $('#<?= $grid->getId() ?>').html(html); });});});
-<?
+<?php
         $view->headScript()->captureEnd();
         
         return $prepend.$view->escape(_T($content)).$append;

@@ -40,7 +40,7 @@ class FreeCode_Grid_Decorator_Pager extends FreeCode_Grid_Decorator_Abstract
         $this->_view->headScript()->captureStart();
 ?>
 $(document).ready(function(){
-<?
+<?php
 
         $imgPath = self::$imagesPath;
         $this->_renderLink('<img src="'.$imgPath.'/first.png" alt="first" />', $this->_pager->getFirstPage());
@@ -58,7 +58,7 @@ $(document).ready(function(){
                 
 ?>
 });
-<?
+<?php
         $this->_view->headScript()->captureEnd();
         
         $this->_html .= '</div>';
@@ -85,7 +85,7 @@ $(document).ready(function(){
         
 ?>
 $('#<?= $id ?>').click(function(){$.get('<?= $url ?>', function(html){ $('#<?= $this->_grid->getId() ?>').html(html); });});
-<?
+<?php
     }
     
 }
