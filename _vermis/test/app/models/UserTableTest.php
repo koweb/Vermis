@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        UserTableTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: UserTableTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: UserTableTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -46,7 +46,7 @@ class UserTableTest extends Test_PHPUnit_DbTestCase
     {
         $user = Doctrine::getTable('User')->findOneByLogin('test-user1');
         $options = $this->_table->fetchUsersAsOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertArrayHasKey(0, $options);
         $this->assertEquals('- any -', $options[0]);
         $this->assertArrayHasKey($user->id, $options);

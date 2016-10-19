@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        Form/Project/SimpleIssueTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: SimpleIssueTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: SimpleIssueTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -44,7 +44,7 @@ class Form_Project_SimpleIssueTest extends Test_PHPUnit_DbTestCase
     public function testFetchProjectsAsOptions()
     {
         $options = $this->_form->fetchProjectsAsOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertTrue(count($options) > 0);
         foreach ($options as $id => $name) {
             $project = Doctrine::getTable('Project')->find($id);

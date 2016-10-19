@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        Form/Project/IssueTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: IssueTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: IssueTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -51,7 +51,7 @@ class Form_Project_IssueTest extends Test_PHPUnit_DbTestCase
         $component = Doctrine::getTable('Project_Component')
             ->fetchComponent($this->_project->id, 'component-2');
         $options = $this->_form->fetchComponentsAsOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertArrayHasKey(0, $options);
         $this->assertEquals('- none -', $options[0]);
         $this->assertArrayHasKey($component->id, $options);
@@ -63,7 +63,7 @@ class Form_Project_IssueTest extends Test_PHPUnit_DbTestCase
         $milestone = Doctrine::getTable('Project_Milestone')
             ->fetchMilestone($this->_project->id, '0-3-beta');
         $options = $this->_form->fetchMilestonesAsOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertArrayHasKey(0, $options);
         $this->assertEquals('- none -', $options[0]);
         $this->assertArrayHasKey($milestone->id, $options);

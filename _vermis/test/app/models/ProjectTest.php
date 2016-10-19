@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        ProjectTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: ProjectTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: ProjectTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -132,7 +132,7 @@ class ProjectTest extends Test_PHPUnit_DbTestCase
         
         $versions = $this->_project->fetchVersions();
         
-        $this->assertType('array', $versions);
+        $this->assertTrue(is_array($versions));
         $this->assertEquals(2, count($versions));
         
         foreach ($versions as $version) {

@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        Grid/Project/IssuesTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: IssuesTest.php 124 2011-01-29 23:37:34Z cepa $
+ * @version     $Id: IssuesTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -69,7 +69,7 @@ class Grid_Project_IssuesTest extends Test_PHPUnit_GridTestCase
         
         // project_name - project_id
         $options = $filter->getOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertEquals(7, count($options));
         $this->assertEquals('- any -', $options[0]);
         $this->assertEquals('Project1', $options[1]);
@@ -97,7 +97,7 @@ class Grid_Project_IssuesTest extends Test_PHPUnit_GridTestCase
         
         // project_name - project_id
         $options = $filter->getOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertEquals(8, count($options));
         $this->assertEquals('- any -', $options[0]);
         $this->assertEquals('Project1', $options[1]);
@@ -126,7 +126,7 @@ class Grid_Project_IssuesTest extends Test_PHPUnit_GridTestCase
         
         // project_name - project_id
         $options = $filter->getOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertEquals(8, count($options));
         $this->assertEquals('- any -', $options[0]);
         $this->assertEquals('Project1', $options[1]);
@@ -172,7 +172,7 @@ class Grid_Project_IssuesTest extends Test_PHPUnit_GridTestCase
         $this->assertEquals('milestone_id', $filter->getAlias());
         
         $options = $filter->getOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertEquals(4, count($options));
         $this->assertEquals('- any -', $options[0]);
         $this->assertEquals('0.3 beta', $options[3]);
@@ -206,7 +206,7 @@ class Grid_Project_IssuesTest extends Test_PHPUnit_GridTestCase
         $this->assertEquals('component_id', $filter->getAlias());
         
         $options = $filter->getOptions();
-        $this->assertType('array', $options);
+        $this->assertTrue(is_array($options));
         $this->assertEquals(4, count($options));
         $this->assertEquals('- any -', $options[0]);
         $this->assertEquals('component 1', $options[1]);

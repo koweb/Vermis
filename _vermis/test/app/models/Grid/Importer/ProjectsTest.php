@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        Grid/Importer/ProjectsTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: ProjectsTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: ProjectsTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -52,7 +52,7 @@ class Grid_Importer_ProjectsTest extends Test_PHPUnit_DbTestCase
         $query = $this->_getImporterForUser('admin')->getRecordsQuery();
         $this->assertTrue($query instanceof Doctrine_Query);
         $records = $query->execute();
-        $this->assertType('array', $records);
+        $this->assertTrue(is_array($records));
         $this->assertEquals(8, count($records));
         
         $this->assertEquals('โครงการ', $records[0]['name']);
@@ -81,7 +81,7 @@ class Grid_Importer_ProjectsTest extends Test_PHPUnit_DbTestCase
         $query = $this->_getImporterForUser('test-user1')->getRecordsQuery();
         $this->assertTrue($query instanceof Doctrine_Query);
         $records = $query->execute();
-        $this->assertType('array', $records);
+        $this->assertTrue(is_array($records));
         $this->assertEquals(7, count($records));
         $this->assertEquals('โครงการ', $records[0]['name']);
         $this->assertEquals('項目', $records[1]['name']);
@@ -100,7 +100,7 @@ class Grid_Importer_ProjectsTest extends Test_PHPUnit_DbTestCase
         $query = $this->_getImporterForGuest()->getRecordsQuery();
         $this->assertTrue($query instanceof Doctrine_Query);
         $records = $query->execute();
-        $this->assertType('array', $records);
+        $this->assertTrue(is_array($records));
         $this->assertEquals(6, count($records));
         $this->assertEquals('โครงการ', $records[0]['name']);
         $this->assertEquals('項目', $records[1]['name']);
