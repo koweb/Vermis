@@ -3,3 +3,5 @@
 /_vermis/log
 .DS_Store
 /_vermis/config/config.php
+/nbproject/private/
+/nbproject
