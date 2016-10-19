@@ -37,7 +37,7 @@ $(document).ready(function(){
 		window.location = '<?= $href ?>?' + p;
 	});
 });
-<?
+<?php
         $this->getView()->headScript()->captureEnd();
         
         return parent::render('javascript:void(0)');

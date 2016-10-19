@@ -42,7 +42,7 @@ function __debug(Exception $exc)
 </body>
 </html>
 
-    <?   
+    <?php   
 }
 
 function __setupTip(FreeCode_Exception_SetupError $exc) 
@@ -63,7 +63,7 @@ function __setupTip(FreeCode_Exception_SetupError $exc)
 </body>
 </html>
 
-    <?   
+    <?php   
 }
 
 try {
