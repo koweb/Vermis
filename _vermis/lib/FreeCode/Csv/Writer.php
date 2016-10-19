@@ -3,15 +3,15 @@
 /**
  * =============================================================================
  * @file        FreeCode/Csv/Writer.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     FreeCode
- * @version	    $Id: Writer.php 70 2011-01-23 12:56:16Z cepa $
+ * @version	    $Id: Writer.php 1753 2012-12-26 10:08:16Z cepa $
  * @license     BSD License
  * 
  * @copyright   FreeCode PHP Extensions
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010 - 2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -31,7 +31,7 @@ class FreeCode_Csv_Writer
      * @param string    $separator
      * @return boolean
      */
-    public function write($data, $fileName, $separator = ';')
+    public static function write($data, $fileName, $separator = ';')
     {
         $csv = FreeCode_Csv_Exporter::export($data, $separator);
         return @file_put_contents($fileName, $csv);
@@ -44,7 +44,7 @@ class FreeCode_Csv_Writer
      * @param string    $separator
      * @return boolean
      */
-    public function writeRow($data, $fileName, $separator = ';')
+    public static function writeRow($data, $fileName, $separator = ';')
     {
         $csv = FreeCode_Csv_Exporter::exportRow($data, $separator);
         return @file_put_contents($fileName, $csv);
