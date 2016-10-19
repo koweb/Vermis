@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        Project/IssuesControllerTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: IssuesControllerTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: IssuesControllerTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -147,14 +147,14 @@ class Project_IssuesControllerTest extends Test_PHPUnit_ControllerTestCase
         
         $this->assertTrue($controller->view->commentForm instanceof Form_Comment);
         
-        $this->assertType('array', $controller->view->comments);
+        $this->assertTrue(is_array($controller->view->comments));
         $this->assertTrue(count($controller->view->comments) > 0);
         foreach ($controller->view->comments as $comment) {
             $this->assertEquals($controller->view->issue->id, $comment['issue_id']);
         }
         
         $this->assertTrue($controller->view->uploadForm instanceof Form_Upload);
-        $this->assertType('array', $controller->view->files);
+        $this->assertTrue(is_array($controller->view->files));
     }
     
     public function testEditAction()
@@ -199,7 +199,7 @@ class Project_IssuesControllerTest extends Test_PHPUnit_ControllerTestCase
         $this->assertEquals($issue->slug,           'عنوان-شغلی');
         
         $this->assertTrue($controller->view->uploadForm instanceof Form_Upload);
-        $this->assertType('array', $controller->view->files);
+        $this->assertTrue(is_array($controller->view->files));
 
         $this->assertEquals($controller->getIdentity()->id, $issue->changer_id);
         $this->assertTrue($issue->create_time <= $issue->update_time);
@@ -239,7 +239,7 @@ class Project_IssuesControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->historyAction();
 
         $changes = $controller->view->changes;
-        $this->assertType('array', $changes);
+        $this->assertTrue(is_array($changes));
         $this->assertEquals(2, count($changes));
         $this->assertEquals('xxx', $changes[0]['title']);
     }

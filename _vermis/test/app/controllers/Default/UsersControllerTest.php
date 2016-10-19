@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        Default/UsersControllerTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: UsersControllerTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: UsersControllerTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -163,7 +163,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->showAction();
         $this->assertTrue($controller->view->user instanceof User);
         $this->assertEquals('Admin-User', $controller->view->user->slug);
-        $this->assertType('array', $controller->view->projects);
+        $this->assertTrue(is_array($controller->view->projects));
         $this->assertTrue(
             $controller->view->assignedGrid 
             instanceof Grid_Project_Issues_Assigned);
@@ -176,7 +176,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->reportedIssuesAction();
         $this->assertTrue($controller->view->user instanceof User);
         $this->assertEquals('Admin-User', $controller->view->user->slug);
-        $this->assertType('array', $controller->view->projects);
+        $this->assertTrue(is_array($controller->view->projects));
         $this->assertTrue(
             $controller->view->reportedGrid 
             instanceof Grid_Project_Issues_Reported);
@@ -361,7 +361,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->editProfileAction();
         $this->assertTrue($controller->view->form instanceof Form_EditProfile);
         $this->assertTrue($controller->view->success);
-        $this->assertType('array', $controller->view->projects);
+        $this->assertTrue(is_array($controller->view->projects));
         
         $user = Doctrine::getTable('User')->findOneByLogin('adminx');
         $this->assertTrue($user instanceof User);
@@ -444,7 +444,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->changePasswordAction();
         $this->assertTrue($controller->view->form instanceof Form_ChangePassword);
         $this->assertTrue($controller->view->success);
-        $this->assertType('array', $controller->view->projects);
+        $this->assertTrue(is_array($controller->view->projects));
         
         $user = Doctrine::getTable('User')->findOneByLogin('admin');
         $this->assertTrue($user instanceof User);
@@ -465,7 +465,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->changePasswordAction();
         $this->assertTrue($controller->view->form instanceof Form_ChangePassword);
         $this->assertFalse($controller->view->success);
-        $this->assertType('array', $controller->view->projects);
+        $this->assertTrue(is_array($controller->view->projects));
         
         $user = Doctrine::getTable('User')->findOneByLogin('admin');
         $this->assertTrue($user instanceof User);
@@ -486,7 +486,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->changePasswordAction();
         $this->assertTrue($controller->view->form instanceof Form_ChangePassword);
         $this->assertFalse($controller->view->success);
-        $this->assertType('array', $controller->view->projects);
+        $this->assertTrue(is_array($controller->view->projects));
         
         $user = Doctrine::getTable('User')->findOneByLogin('admin');
         $this->assertTrue($user instanceof User);
@@ -508,7 +508,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller = $this->getController('UsersController');
         $user = $controller->fetchUser();
         $projects = $controller->fetchUserProjects($user);
-        $this->assertType('array', $projects);
+        $this->assertTrue(is_array($projects));
     }
     
     public function testAddUserBreadCrumb()
@@ -742,7 +742,7 @@ class Default_UsersControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->editProfileAction();
         $this->assertTrue($controller->view->form instanceof Form_EditProfile);
         $this->assertFalse($controller->view->success);
-        $this->assertType('array', $controller->view->projects);
+        $this->assertTrue(is_array($controller->view->projects));
     }
     
     protected function _assertNumberOfUsers($num)

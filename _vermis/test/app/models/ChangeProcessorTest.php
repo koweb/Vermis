@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        ChangeProcessorTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: ChangeProcessorTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: ChangeProcessorTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -23,7 +23,7 @@ class ChangeProcessorTest extends Test_PHPUnit_TestCase
     public function testProcess1()
     {
         $p = ChangeProcessor::process(array());
-        $this->assertType('array', $p);
+        $this->assertTrue(is_array($p));
         $this->assertTrue(empty($p));
     }
     
@@ -38,7 +38,7 @@ class ChangeProcessorTest extends Test_PHPUnit_TestCase
         );
         
         $p = ChangeProcessor::process($changes);
-        $this->assertType('array', $p);
+        $this->assertTrue(is_array($p));
         $this->assertEquals(1, count($p));
         
         $this->assertEquals(3, count($p[0]));
@@ -65,7 +65,7 @@ class ChangeProcessorTest extends Test_PHPUnit_TestCase
         );
         
         $p = ChangeProcessor::process($changes);
-        $this->assertType('array', $p);
+        $this->assertTrue(is_array($p));
         $this->assertEquals(2, count($p));
         
         $this->assertEquals(3, count($p[0]));

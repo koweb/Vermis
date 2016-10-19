@@ -3,14 +3,14 @@
 /**
  * =============================================================================
  * @file        Project/IndexControllerTest.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     Vermis
- * @version     $Id: IndexControllerTest.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: IndexControllerTest.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -49,17 +49,17 @@ class Project_IndexControllerTest extends Test_PHPUnit_ControllerTestCase
         $this->assertTrue($controller->view->project instanceof Project);
         $this->assertEquals($this->_project->slug, $controller->view->project->slug);
         
-        $this->assertType('array', $controller->view->milestones);
-        $this->assertType('array', $controller->view->components);
-        $this->assertType('array', $controller->view->leaders);
-        $this->assertType('array', $controller->view->developers);
-        $this->assertType('array', $controller->view->observers);
+        $this->assertTrue(is_array($controller->view->milestones));
+        $this->assertTrue(is_array($controller->view->components));
+        $this->assertTrue(is_array($controller->view->leaders));
+        $this->assertTrue(is_array($controller->view->developers));
+        $this->assertTrue(is_array($controller->view->observers));
 
         $this->assertTrue(
             $controller->view->myGrid 
             instanceof Grid_Project_Issues_My);
             
-        $this->assertType('array', $controller->view->activity);
+        $this->assertTrue(is_array($controller->view->activity));
         $this->assertTrue(count($controller->view->activity) > 0);
         foreach ($controller->view->activity as $a) {
             $this->assertEquals($this->_project->id, $a['project_id']);
@@ -190,7 +190,7 @@ class Project_IndexControllerTest extends Test_PHPUnit_ControllerTestCase
         $controller->historyAction();
         $changes = $controller->view->changes;
         
-        $this->assertType('array', $changes);
+        $this->assertTrue(is_array($changes));
         $this->assertEquals(2, count($changes));
         
         $this->assertEquals($this->_project->id, $changes[0]['id']);
