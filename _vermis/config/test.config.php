@@ -6,6 +6,32 @@
  * $Id: sample.config.php 1102 2011-01-29 23:37:17Z cepa $
  */
 
+$config = array(
+    'DATABASE_DRIVER'	=> 'mysql',
+    'DATABASE_HOST'		=> 'localhost',
+    'DATABASE_PORT'		=> 3306,
+    'DATABASE_USERNAME' => 'root',
+    'DATABASE_PASSWORD' => ''
+);
+
+$ciConfig = strtolower(getenv('CONFIG'));
+$dbHost = 'test-'.$ciConfig;
+if (strstr($ciConfig, 'mysql')) {
+    $config['DATABASE_DRIVER']    = 'mysql';
+    $config['DATABASE_HOST']      = $dbHost;
+    $config['DATABASE_PORT']      = 3306;
+    $config['DATABASE_USERNAME']  = 'root';
+    $config['DATABASE_PASSWORD']  = '';
+} else if (strstr($ciConfig, 'postgresql')) {
+    $config['DATABASE_DRIVER']    = 'pgsql';
+    $config['DATABASE_HOST']      = $dbHost;
+    $config['DATABASE_PORT']      = 5432;
+    $config['DATABASE_USERNAME']  = 'postgres';
+    $config['DATABASE_PASSWORD']  = 'postgres';
+}
+
+$config['DATABASE_NAME'] = 'vermis_ose_'.md5(getenv('NODE_NAME').getenv('JOB_NAME'));
+
 return array(
 
     // Name of the environment.
@@ -88,22 +114,22 @@ return array(
             // The database driver.
             // You should not change this value!
             // It should be 'mysql'
-            'driver'    => 'mysql',
+            'driver'    => $config['DATABASE_DRIVER'],
         
             // Database hostname or ip address.
-            'host'      => 'localhost',
+            'host'      => $config['DATABASE_HOST'],
         
             // Name of the database.
-            'name'      => 'vermis',
+            'name'      => $config['DATABASE_NAME'],
         
             // Database username.
-            'user'      => 'vermis',
+            'user'      => $config['DATABASE_USERNAME'],
         
             // Database password.
-            'password'  => 'vermis',
+            'password'  => $config['DATABASE_PASSWORD'],
         
             // Database server port.
-            'port'      => 3306,
+            'port'      => $config['DATABASE_PORT'],
         
             // Enable query debugging.
             'debug'     => false

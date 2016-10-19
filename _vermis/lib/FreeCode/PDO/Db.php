@@ -3,15 +3,15 @@
 /**
  * =============================================================================
  * @file        FreeCode/PDO/Db.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     FreeCode
- * @version	    $Id: Db.php 70 2011-01-23 12:56:16Z cepa $
+ * @version	    $Id: Db.php 1753 2012-12-26 10:08:16Z cepa $
  * @license     BSD License
  * 
  * @copyright   FreeCode PHP Extensions
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010 - 2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -26,7 +26,7 @@ class FreeCode_PDO_Db
      * Get instance (singleton).
      * @return FreeCode_PDO_Db_Adapter_Mysql
      */
-    public function getInstance()
+    public static function getInstance()
     {
         static $instance;
         if (isset($instance))

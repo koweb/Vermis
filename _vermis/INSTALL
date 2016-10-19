@@ -6,12 +6,12 @@
  \___/ \____/ \_| \_|\_|  |_/ \___/ \____/ 
     
     Version 1.0
-    $Id: INSTALL 109 2011-01-23 21:42:27Z cepa $                                      
+    $Id: INSTALL 1353 2012-12-26 20:46:41Z cepa $                                      
 
     Vermis :: The Issue Tracking System
-    Copyright (C) 2011 Ognisco
+    Copyright (C) 2010-2012 HellWorx Software
     All rights reserved.
-    www.ognisco.com
+    www.hellworx.com
 
 1. Installation under Apache.
 

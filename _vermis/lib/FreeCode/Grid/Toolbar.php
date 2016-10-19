@@ -3,15 +3,15 @@
 /**
  * =============================================================================
  * @file        FreeCode/Grid/Toolbar.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     FreeCode
- * @version	    $Id: Toolbar.php 70 2011-01-23 12:56:16Z cepa $
+ * @version	    $Id: Toolbar.php 1753 2012-12-26 10:08:16Z cepa $
  * @license     BSD License
  * 
  * @copyright   FreeCode PHP Extensions
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010 - 2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 

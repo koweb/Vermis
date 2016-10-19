@@ -8,11 +8,11 @@
  *              nohum <zyancali[at]gmx.at>
  *              
  * @package     Vermis
- * @version     $Id: de_DE.php 114 2011-01-25 21:37:28Z cepa $
+ * @version     $Id: de_DE.php 1353 2012-12-26 20:46:41Z cepa $
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  *
  * 				German translation for Vermis
  * =============================================================================

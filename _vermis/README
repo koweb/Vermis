@@ -6,15 +6,15 @@
  \___/ \____/ \_| \_|\_|  |_/ \___/ \____/ 
     
     Version 1.0
-    $Id: README 109 2011-01-23 21:42:27Z cepa $                                       
+    $Id: README 1353 2012-12-26 20:46:41Z cepa $                                       
 
     Vermis :: The Issue Tracking System
-    Copyright (C) 2011 Ognisco
+    Copyright (C) 2010-2012 HellWorx Software
     All rights reserved.
-    www.ognisco.com
+    www.hellworx.com
 
 Welcome to Vermis the Issue Tracking System.
-For more information, see: http://vermis.ognisco.com
+For more information, see: http://vermis.hellworx.com
 
 REQUIREMENTS:
     - PHP 5.2.x

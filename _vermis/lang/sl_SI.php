@@ -5,11 +5,11 @@
  * @file        sl_SI.php
  * @author      Danijel Hrvaćanin <danijel[at]iseelab.com>
  * @package     Vermis
- * @version     $Id: sl_SI.php 109 2011-01-23 21:42:27Z cepa $
+ * @version     $Id: sl_SI.php 1353 2012-12-26 20:46:41Z cepa $
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  *              
  * 				Slovenian translation for Vermis
  * =============================================================================

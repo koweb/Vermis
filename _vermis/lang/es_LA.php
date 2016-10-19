@@ -8,9 +8,9 @@
  * @version     $Id: es_LA.php 97 2011-01-19 20:55:02Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010-2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  *              
  *              Spanish translation.
  * =============================================================================

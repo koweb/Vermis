@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: package.sh 130 2011-01-30 00:46:27Z cepa $
+# $Id: package.sh 1114 2011-01-30 00:46:27Z cepa $
 
 cd ../..
 
