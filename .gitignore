@@ -2,3 +2,4 @@
 /_vermis/upload
 /_vermis/log
 .DS_Store
+/_vermis/config/config.php
