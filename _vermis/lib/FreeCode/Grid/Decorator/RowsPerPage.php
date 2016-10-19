@@ -9,9 +9,9 @@
  * @license     BSD License
  * 
  * @copyright   FreeCode PHP Extensions
- *              Copyright (C) 2010 - 2012 HellWorx Software
+ *              Copyright (C) 2010-2016 Cask Code, KOWeb
  *              All rights reserved.
- *              www.hellworx.com
+ *              https://github.com/koweb/Vermis
 * =============================================================================
  */
 

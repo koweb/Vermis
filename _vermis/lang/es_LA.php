@@ -8,9 +8,9 @@
  * @version     $Id: es_LA.php 97 2011-01-19 20:55:02Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2010-2012 HellWorx Software
+ *              Copyright (C) 2010-2016 Cask Code, KOWeb
  *              All rights reserved.
- *              www.hellworx.com
+ *              https://github.com/koweb/Vermis
  *              
  *              Spanish translation.
  * =============================================================================

@@ -8,9 +8,9 @@
  * @version     $Id: index.php 1353 2012-12-26 20:46:41Z cepa $
  * 
  * @copyright   Vermis :: The Issue Tracking System
- *              Copyright (C) 2010-2012 HellWorx Software
+ *              Copyright (C) 2010-2016 Cask Code, KOWeb
  *              All rights reserved.
- *              www.hellworx.com
+ *              https://github.com/koweb/Vermis
  * =============================================================================
  */
 
@@ -38,7 +38,7 @@ function __debug(Exception $exc)
     <div style="font-weight:bold; font-size:16px; color:#aaaaaa; line-height:32px; letter-spacing:1px;">Uptime:</div>
     <div style="font-size:16px; font-weight:bold; color:#000000; padding:4px 20px;"><?= FreeCode_Application::getInstance()->getUptime() ?></div>
 </div>
-<div style="text-align:center; padding:20px; font-size:10px; color:#444444;">&copy; <?= date('Y') ?> <a href="http://www.hellworx.com">HellWorx Software</a></div>
+<div style="text-align:center; padding:20px; font-size:10px; color:#444444;">&copy; <?= date('Y') ?> <a href="https://github.com/koweb/Vermis">Cask Code, KOWeb</a></div>
 </body>
 </html>
 
@@ -59,7 +59,7 @@ function __setupTip(FreeCode_Exception_SetupError $exc)
     <div style="font-size:22px; font-weight:bold; color:#666666; padding:4px 20px; text-align:center;"><span style="font-size:2em; padding:0 20px; color:red;">:(</span> <?= $exc->getMessage() ?></div>
 	<div style="font-size:16px; font-weight:normal; color:#000000; text-align:center"><?= $exc->getTip() ?></div>
 </div>
-<div style="text-align:center; padding:20px; font-size:10px; color:#444444;">&copy; <?= date('Y') ?> <a href="http://www.hellworx.com">HellWorx Software</a></div>
+<div style="text-align:center; padding:20px; font-size:10px; color:#444444;">&copy; <?= date('Y') ?> <a href="https://github.com/koweb/Vermis">Cask Code, KOWeb</a></div>
 </body>
 </html>
 
