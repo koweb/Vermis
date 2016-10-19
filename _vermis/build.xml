@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- $Id: build.xml 86 2011-01-05 20:53:36Z cepa $ -->
+<!-- $Id: build.xml 1350 2012-12-26 16:09:56Z cepa $ -->
 
 <project name="vermis" default="dummy" basedir=".">
 
@@ -96,7 +96,7 @@
     <target name="test" depends="prepare"
             description="Unit testing">
         <exec 
-                command="phpunit --verbose --process-isolation --log-junit results/unit-tests.xml UnitTests" 
+                command="phpunit --debug --verbose --process-isolation --log-junit results/unit-tests.xml UnitTests" 
                 dir="./test/"  
                 passthru="true"
                 checkreturn="true"/>
@@ -146,7 +146,7 @@
     </target>
 
     <!-- Continous integration -->
-    <target name="ci" depends="test, build, selenium, dump-sql, doc, package"
+    <target name="ci" depends="test"
             description="Continous integration">
     </target>
 
