@@ -3,15 +3,15 @@
 /**
  * =============================================================================
  * @file        FreeCode/Builder.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     FreeCode
- * @version	    $Id: Builder.php 73 2011-01-24 21:52:27Z cepa $
+ * @version	    $Id: Builder.php 1753 2012-12-26 10:08:16Z cepa $
  * @license     BSD License
  * 
  * @copyright   FreeCode PHP Extensions
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010 - 2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -68,9 +68,13 @@ class FreeCode_Builder
      */
     public function dropDatabase()
     {
-        $pdo = $this->_getUniqueConnection();
-        $pdo->exec("DROP DATABASE IF EXISTS {$this->_config->database->name}");
-        $pdo = null;
+        try {
+            $pdo = $this->_getUniqueConnection();
+            $pdo->exec("DROP DATABASE {$this->_config->database->name}");
+            $pdo = null;
+        } catch (Exception $e) {
+            // ignore
+        }
         return $this;   
     }
     
@@ -232,9 +236,11 @@ class FreeCode_Builder
         if (isset($db->port))
             $dsn .= 'port='.$db->port.';';
             
-        return FreeCode_PDO_Manager::getInstance()
+        $conn = FreeCode_PDO_Manager::getInstance()
             ->closeConnections()
             ->getNewConnection($dsn, $db->user, $db->password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $conn;
     }
     
 }

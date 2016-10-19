@@ -3,15 +3,15 @@
 /**
  * =============================================================================
  * @file        FreeCode/PHPUnit/GridTestCase.php
- * @author      Lukasz Cepowski <lukasz[at]cepowski.pl>
+ * @author      Lukasz Cepowski <lukasz@cepowski.com>
  * @package     FreeCode
- * @version	    $Id: GridTestCase.php 70 2011-01-23 12:56:16Z cepa $
+ * @version	    $Id: GridTestCase.php 1755 2012-12-26 11:07:26Z cepa $
  * @license     BSD License
  * 
  * @copyright   FreeCode PHP Extensions
- *              Copyright (C) 2011 Ognisco
+ *              Copyright (C) 2010 - 2012 HellWorx Software
  *              All rights reserved.
- *              www.ognisco.com
+ *              www.hellworx.com
  * =============================================================================
  */
 
@@ -71,7 +71,7 @@ abstract class FreeCode_PHPUnit_GridTestCase extends FreeCode_PHPUnit_TestCase
     public function assertRowsOrder(FreeCode_Grid $grid, $columnId, $order)
     {
         $rows = $grid->getRows();
-        $this->assertType('array', $rows);
+        $this->assertTrue(is_array($rows));
         $old = null;
         $fail = false;
         
@@ -79,7 +79,7 @@ abstract class FreeCode_PHPUnit_GridTestCase extends FreeCode_PHPUnit_TestCase
             $this->fail("Number of rows is zero!");
 
         foreach ($rows as $row) {
-            $this->assertType('array', $row);
+            $this->assertTrue(is_array($row));
             $this->assertArrayHasKey($columnId, $row);
             
             if ($order == 'asc') { 
