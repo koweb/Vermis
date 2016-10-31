@@ -1,0 +1,13 @@
+{
+    "name": "vendor/vermis",
+    "description": "Description of project Vermis.",
+    "authors": [
+        {
+            "name": "Omar.PIANI",
+            "email": "your@email.here"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "4.8.27"
+    }
+}

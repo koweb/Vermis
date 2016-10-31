@@ -1,9 +1,0 @@
-<area shape="rect" href="$classActivityController.html" title="Activity controller." alt="" coords="307,5,427,32">
-<area shape="rect" href="$classAuthController.html" title="Authorization controller." alt="" coords="315,56,419,83">
-<area shape="rect" href="$classErrorController.html" title="Error controller." alt="" coords="315,107,419,133">
-<area shape="rect" href="$classIndexController.html" title="Index controller." alt="" coords="313,157,420,184">
-<area shape="rect" href="$classIssuesController.html" title="Issues controller." alt="" coords="309,208,424,235">
-<area shape="rect" href="$classProjectsController.html" title="Projects controller." alt="" coords="305,259,428,285">
-<area shape="rect" href="$classSearchController.html" title="Search controller." alt="" coords="308,309,425,336">
-<area shape="rect" href="$classUsersController.html" title="Users controller." alt="" coords="312,360,421,387">
-<area shape="rect" href="$classController.html" title="Default base controller." alt="" coords="7,183,81,209">
