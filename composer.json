@@ -4,10 +4,11 @@
     "authors": [
         {
             "name": "Omar.PIANI",
-            "email": "your@email.here"
+            "email": "omar.piani@gmail.com"
         }
     ],
     "require-dev": {
-        "phpunit/phpunit": "4.8.27"
+        "phpunit/phpunit": "4.8.*",
+        "phing/phing": "2.15.*"
     }
 }
