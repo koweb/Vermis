@@ -6,10 +6,12 @@ Open Source issue tracker and project management tool for software developers an
 
 ### Requirements
 
-PHP 5.3.X (or newer)
+PHP 5.4.X (or newer) - (for 5.3 you need to set short_open_tag=On in php.ini)
 MySQL 5.X
 Apache HTTP Server (or compatible)
 mod_rewrite (or compatible)
+
+
 
 ### Installation
 
@@ -30,7 +32,7 @@ GRANT ALL PRIVILEGES ON vermis.* to vermis@localhost identified by 'vermis';
 * Import SQL database.
 
 ```
-mysql --user=[db username] --password=[db password] < database.sql
+mysql vermis --user=vermis --password=vermis < database.sql
 ```
 
 * Create directories and set permissions to them.

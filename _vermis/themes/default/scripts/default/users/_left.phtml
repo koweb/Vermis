@@ -41,9 +41,9 @@
         <div class="header"><?= _T('projects') ?></div>
         <div class="content-box">
                 <ul class="list">
-                    <? foreach ($this->projects as $project): ?>
+                    <?php foreach ($this->projects as $project): ?>
                         <li><?= $this->projectLink($project['slug'], $project['name']) ?></li>
-                    <? endforeach ?>
+                    <?php endforeach ?>
                 </ul>
         </div>
     </div>

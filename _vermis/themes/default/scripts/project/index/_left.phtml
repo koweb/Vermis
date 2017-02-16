@@ -31,55 +31,55 @@
         </div>
     </div>
     
-    <? if (count($this->milestones) > 0): ?>
+    <?php if (count($this->milestones) > 0): ?>
         <div class="info-frame">        
             <div class="header"><?= _T('milestones') ?></div>
             <div class="content-box">
                 <ul class="list">
-                    <? foreach ($this->milestones as $milestone): ?>
+                    <?php foreach ($this->milestones as $milestone): ?>
                         <li><?= $this->milestoneLink($this->project['slug'], $milestone['slug'], $milestone['name']) ?></li>
-                    <? endforeach ?>
+                    <?php endforeach ?>
                 </ul>
             </div>
         </div>
-    <? endif ?>
+    <?php endif ?>
     
-    <? if (count($this->components) > 0): ?>
+    <?php if (count($this->components) > 0): ?>
         <div class="info-frame">        
             <div class="header"><?= _T('components') ?></div>
             <div class="content-box">
                 <ul class="list">
-                    <? foreach ($this->components as $component): ?>
+                    <?php foreach ($this->components as $component): ?>
                         <li><?= $this->componentLink($this->project['slug'], $component['slug'], $component['name']) ?></li>
-                    <? endforeach ?>
+                    <?php endforeach ?>
                 </ul>
             </div>
         </div>
-    <? endif ?>
+    <?php endif ?>
     
-    <? if (count($this->leaders) > 0): ?>
+    <?php if (count($this->leaders) > 0): ?>
         <div class="info-frame">        
             <div class="header"><?= _T('leaders') ?></div>
             <div class="content-box">
                 <?= $this->partial('index/_members.phtml', array('members' => $this->leaders))?>
             </div>
         </div>
-    <? endif ?>
+    <?php endif ?>
     
-    <? if (count($this->developers) > 0): ?>
+    <?php if (count($this->developers) > 0): ?>
         <div class="info-frame">        
             <div class="header"><?= _T('developers') ?></div>
             <div class="content-box">
                 <?= $this->partial('index/_members.phtml', array('members' => $this->developers))?>
             </div>
         </div>
-    <? endif ?>
+    <?php endif ?>
     
-    <? if (count($this->observers) > 0): ?>
+    <?php if (count($this->observers) > 0): ?>
         <div class="info-frame">        
             <div class="header"><?= _T('observers') ?></div>
             <div class="content-box">
                 <?= $this->partial('index/_members.phtml', array('members' => $this->observers))?>
             </div>
         </div>
-    <? endif ?>
+    <?php endif ?>

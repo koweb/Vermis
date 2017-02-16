@@ -1,21 +1,21 @@
 <?php /* $Id: _changes.phtml 1071 2011-01-05 20:54:24Z cepa $ */ ?>
-<? foreach ($this->changes as $change): ?>
+<?php foreach ($this->changes as $change): ?>
     <div class="changes">
         <div>
-            <? if (isset($change['changer_slug']) && isset($change['changer_name']) && isset($change['update_time'])): ?>
+            <?php if (isset($change['changer_slug']) && isset($change['changer_name']) && isset($change['update_time'])): ?>
                 <?= $this->userLink($change['changer_slug'], $change['changer_name']) ?>
                 <?= _T('made_changes') ?> - 
                 <?= $this->date($change['update_time']) ?> 
-            <? endif ?>
+            <?php endif ?>
         </div>
         <table>
-        <? foreach ($this->fields as $key => $options): ?>
-            <? if (array_key_exists($key, $change)): $value = $change[$key]; ?>
+        <?php foreach ($this->fields as $key => $options): ?>
+            <?php if (array_key_exists($key, $change)): $value = $change[$key]; ?>
                 <tr>
                     <td><?= _T($options['title']) ?></td>
                     <td>=&gt;</td>
                     <td>
-                        <? 
+                        <?php 
                         if (isset($options['decorator'])) {
                             $args = array();
                             $params = $options['params'];
@@ -32,8 +32,8 @@
                         ?>
                     </td>
                 </tr>
-            <? endif ?>
-        <? endforeach ?>
+            <?php endif ?>
+        <?php endforeach ?>
         </table>
     </div>
-<? endforeach ?>
+<?php endforeach ?>

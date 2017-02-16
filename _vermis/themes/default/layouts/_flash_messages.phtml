@@ -1,13 +1,13 @@
 <?php /* $Id: _flash_messages.phtml 1071 2011-01-05 20:54:24Z cepa $ */ ?>
-<? $messages = FreeCode_FlashMessages::getInstance()->getMessagesAndClear() ?>
+<?php $messages = FreeCode_FlashMessages::getInstance()->getMessagesAndClear() ?>
 
-<? if (count($messages) > 0): ?>
+<?php if (count($messages) > 0): ?>
     <div id="flash-messages-box" class="popup">
         <div class="shadow">
             <div class="content">
-                <? foreach ($messages as $message => $flag): ?>
+                <?php foreach ($messages as $message => $flag): ?>
                     <div><?= $this->escape(_T($message)) ?></div>
-            <? endforeach ?>
+                <?php endforeach ?>
             </div>
         </div>
     </div>
@@ -22,4 +22,4 @@
         });
     });
     </script>
-<? endif ?>
+<?php endif ?>

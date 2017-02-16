@@ -1,8 +1,8 @@
 <?php /* $Id: _identity.phtml 1071 2011-01-05 20:54:24Z cepa $ */ ?>
         <div id="identity-box">
             <?= _T('logged_as') ?> <a class="strong" href="<?= $this->url(array('user_slug' => $this->identity->slug), 'users/show') ?>"><?= $this->escape($this->identity->name) ?></a> |
-            <? if ($this->activeModule != 'default'): ?>
+            <?php if ($this->activeModule != 'default'): ?>
                 <a href="<?= $this->url(array(), 'index') ?>"><?= $this->identity ? _T('dashboard') : _T('home') ?></a> |
-            <? endif ?>
+            <?php endif ?>
             <a href="<?= $this->url(array(), 'auth/logout') ?>"><?= _T('log_out') ?></a>
         </div>

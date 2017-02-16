@@ -21,7 +21,7 @@
     </div>
     
     <div>
-        <? foreach ($this->comments as $comment): ?>
+        <?php foreach ($this->comments as $comment): ?>
             <div class="comment-frame">
                 <div class="header">
                     <div class="left">
@@ -30,8 +30,8 @@
                     </div>
                     <div class="right">
                         <?= $this->date($comment['time']) ?>
-                        <? if ($this->identity && $this->identity->isAdmin()): ?>
-                            <?
+                        <?php if ($this->identity && $this->identity->isAdmin()): ?>
+                            <?php
                             $buttons = array(
                                 array(
                                     'title' => 'delete', 
@@ -49,22 +49,22 @@
                             );
                             ?>
                             <?= $this->smallButtons($buttons) ?>
-                        <? endif ?>
+                        <?php endif ?>
                     </div>
                 </div>
                 <div class="content">
                     <?= $this->superEscape($comment['content']) ?>
                 </div>
             </div>
-        <? endforeach ?>
+        <?php endforeach ?>
     </div>
     
-    <? if ($this->identity): ?>
+    <?php if ($this->identity): ?>
         <div class="header-box" style="margin-top:20px">
             <h1><?= _T('add_a_comment') ?></h1>
         </div>
         <div>
             <?= $this->commentForm ?>
         </div>
-    <? endif ?>
+    <?php endif ?>
 </div>

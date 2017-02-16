@@ -65,15 +65,15 @@
             <div class="header"><?= _T('attachments') ?></div>
             <div class="content-box">
                 <ul class="list">
-                    <? foreach ($this->files as $file): ?>
+                    <?php foreach ($this->files as $file): ?>
                         <li>
-                        	<? $class = ''; if (in_array($file['mime_type'], Project_Issue_File::$noAttachmentTypes)) { $class = ' class="lightbox"'; } ?>
+                        	<?php $class = ''; if (in_array($file['mime_type'], Project_Issue_File::$noAttachmentTypes)) { $class = ' class="lightbox"'; } ?>
                             <a <?= $class?> href="<?= $this->url(array('project_slug' => $this->project->slug, 'issue_number' => $this->issue->number, 'file_id' => $file['id']), 'project/issues_files/download') ?>">
                                 <?= $this->escape($file['real_name']) ?>
                             </a> 
                             (<?= FreeCode_String::fileSize($file['size'], '') ?>)
-                            <? if ($this->identity && $this->identity->isAdmin()): ?>
-                                <?
+                            <?php if ($this->identity && $this->identity->isAdmin()): ?>
+                                <?php
                                 $buttons = array(
                                     array(
                                         'title' => 'delete', 
@@ -91,13 +91,13 @@
                                 );
                                 ?>
                                 <?= $this->smallButtons($buttons) ?>
-                            <? endif ?>
+                            <?php endif ?>
                         </li>
-                    <? endforeach ?>
+                    <?php endforeach ?>
                 </ul>
-                <? if ($this->identity): ?>
+                <?php if ($this->identity): ?>
                     <?= $this->uploadForm ?>
-                <? endif ?>
+                <?php endif ?>
             </div>
         </div>
         

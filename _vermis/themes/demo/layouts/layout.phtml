@@ -6,27 +6,27 @@
 
 <div id="top-box">
     <div style="float:right">
-        <? if ($this->identity): ?>
+        <?php if ($this->identity): ?>
             <?= $this->render('_identity.phtml') ?>
-        <? else: ?>
+        <?php else: ?>
             <?= $this->render('_login.phtml') ?>
-        <? endif ?>
+        <?php endif ?>
         <div id="big-link-box">
             <strong style="font-size:1.5em;">+</strong> 
-            <? if ($this->project): ?>
+            <?php if ($this->project): ?>
                 <a href="<?= $this->url(array('project_slug' => $this->project->slug), 'project/issues/new') ?>" title="<?= _T('add_issue') ?>"><?= _T('add_issue') ?></a>
-            <? else:  ?>
+            <?php else:  ?>
                 <a href="<?= $this->url(array(), 'issues/new') ?>" title="<?= _T('add_issue') ?>"><?= _T('add_issue') ?></a>
-            <? endif ?>
+            <?php endif ?>
         </div>
     </div>
-    <? if ($this->project && $this->actionName != 'login'): ?>
+    <?php if ($this->project && $this->actionName != 'login'): ?>
         <div id="very-big-link-box">
             <strong>#</strong> <?= $this->projectLink($this->project->slug, $this->project->name) ?>
         </div>
-    <? else: ?>
+    <?php else: ?>
         <a id="vermis-logo" href="<?= $this->url(array(), 'index') ?>"></a>
-    <? endif ?>
+    <?php endif ?>
 </div>
 
 <?= $this->render('menu.phtml') ?>

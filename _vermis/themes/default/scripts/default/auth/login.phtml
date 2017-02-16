@@ -6,9 +6,9 @@
 <div id="login-box">
     <div class="header-box"><h1>Vermis</h1></div>
     <?= $this->form ?>
-    <? if (Application::getInstance()->isDemo()): ?>
+    <?php if (Application::getInstance()->isDemo()): ?>
         <p style="text-align:center"><?= _T('demo_message')?></p>
-    <? endif ?>
+    <?php endif ?>
     <p style="text-align:center">
         <a href="<?= $this->url(array(), 'users/register') ?>"><?= _T('signup_for_a_new_account') ?></a> |
         <a href="<?= $this->url(array(), 'users/remind-password') ?>"><?= _T('dont_remember_your_password') ?></a> 

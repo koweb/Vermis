@@ -4,11 +4,11 @@
     <?= $this->render('_welcome.phtml') ?>
 
     <div class="header-box">
-        <? if ($this->identity): ?>
+        <?php if ($this->identity): ?>
             <h1><?= _T('my_projects') ?></h1>
-        <? else: ?>
+        <?php else: ?>
             <h1><?= _T('public_projects') ?></h1>
-        <? endif ?>
+        <?php endif ?>
     </div>
     <?= $this->partial('_projects_list.phtml', array('projects' => $this->identityProjects)) ?>
     
@@ -16,10 +16,10 @@
 
 <div class="index-main-box">
     
-    <? if ($this->identity): ?>
+    <?php if ($this->identity): ?>
         <?= $this->myGrid ?>
         <div style="height:20px;"></div>
-    <? endif ?>
+    <?php endif ?>
     
     <?= $this->latestGrid ?>
     <div style="height:20px;"></div>

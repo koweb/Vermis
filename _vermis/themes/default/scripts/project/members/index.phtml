@@ -1,7 +1,7 @@
 <?php /* $Id: index.phtml 1071 2011-01-05 20:54:24Z cepa $ */ ?>
-<? if (!$this->identity): ?>
+<?php if (!$this->identity): ?>
     <?= $this->membersGrid ?>
-<? else: ?>
+<?php else: ?>
 
 <div class="index-left-box">
     <div class="header-box">
@@ -10,15 +10,15 @@
     <div class="info-frame">        
         <div class="header"><?= _T('Add a member') ?></div>
         <div class="content-box">
-            <? if ($this->identity && $this->identity->isAdmin()): ?>
-                <? if ($this->nonMembersCount > 0): ?>
+            <?php if ($this->identity && $this->identity->isAdmin()): ?>
+                <?php if ($this->nonMembersCount > 0): ?>
                     <?= $this->form ?>
-                <? else: ?>
+                <?php else: ?>
                     <?= _T('all_available_users_are_already_in_project') ?>
-                <? endif ?>
-            <? else: ?>
+                <?php endif ?>
+            <?php else: ?>
                 <?= _T('you_need_to_be_an_administrator') ?>
-            <? endif ?>
+            <?php endif ?>
         </div>
     </div>
 </div>
@@ -27,4 +27,4 @@
     <?= $this->membersGrid ?>
 </div>
 
-<? endif ?>
+<?php endif ?>

@@ -1,10 +1,10 @@
 <?php /* $Id: _members.phtml 1071 2011-01-05 20:54:24Z cepa $ */ ?>
-<? if (count($this->members) > 0): ?>
+<?php if (count($this->members) > 0): ?>
     <ul class="list">
-        <? foreach ($this->members as $member): ?>
+        <?php foreach ($this->members as $member): ?>
             <li><?= $this->userLink($member['user']['slug'], $member['user']['name']) ?></li>
-        <? endforeach ?>
+        <?php endforeach ?>
     </ul>
-<? else: ?>
+<?php else: ?>
     (none)
-<? endif ?>
+<?php endif ?>
