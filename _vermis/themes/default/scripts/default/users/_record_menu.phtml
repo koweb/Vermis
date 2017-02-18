@@ -1,5 +1,5 @@
 <?php /* $Id: _record_menu.phtml 1071 2011-01-05 20:54:24Z cepa $ */ ?>
-<?
+<?php
 if ($this->identity->id == $this->user->id) {
     $menu = array(
         array('title' => 'change_password', 'url' => $this->url(array('user_slug' => $this->user['slug']), 'users/change-password'), 'action' => 'change-password', 'float' => 'right'),

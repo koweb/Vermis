@@ -1,5 +1,5 @@
 <?php /* $Id: _menu.phtml 1071 2011-01-05 20:54:24Z cepa $ */ ?>
-<?
+<?php
 $menu = array();
 $menu[] = array('title' => 'browse_components', 'url' => $this->url(array('project_slug' => $this->project->slug), 'project/components'), 'action' => 'index');
 if ($this->identity && ($this->identity->isAdmin() || $this->projectRole != Project_Member::ROLE_OBSERVER))
