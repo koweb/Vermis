@@ -228,11 +228,13 @@ class Application extends FreeCode_Application
         if (!isset($_SERVER) || !isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
             return parent::setupTranslator($locale, $translationPath); 
         $ua = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        $acceptLanguages = explode(";", $ua);
+        
         $locales = array(
             'pl-PL' => 'pl_PL', 
-        	'pl'    => 'pl_PL',
+            'pl'    => 'pl_PL',
             'sl-SI' => 'sl_SI',
-        	'sl'    => 'sl_SI',
+            'sl'    => 'sl_SI',
             'nl-NL' => 'nl_NL',
             'nl'    => 'nl_NL',
             'fr-FR' => 'fr_FR',
@@ -242,12 +244,18 @@ class Application extends FreeCode_Application
             'es-LA' => 'es_LA',
             'es'    => 'es_LA',
             'en-US' => 'en_US', 
-        	'en'    => 'en_US'
+            'en'    => 'en_US',
+            'it'    => 'it_IT',
+            'it-IT' => 'it_IT'
         );
         
-        foreach ($locales as $name => $trans)
-            if (strstr($ua, $name))
-                return parent::setupTranslator($trans, $translationPath);
+        foreach ($acceptLanguages as $lang) {
+            foreach ($locales as $name => $trans) {
+                if (strstr($lang, $name)) {
+                    return parent::setupTranslator($trans, $translationPath);
+                }
+            }
+        }
         
         return parent::setupTranslator($locale, $translationPath);    
     }
