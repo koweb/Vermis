@@ -144,7 +144,7 @@ a {
 	font-weight: bold;
 }
 a:hover, a.active {
-    color: #c0869c;
+    color: #ccc;
     text-decoration: none;
 }
 .header-box h1 {
@@ -152,7 +152,7 @@ a:hover, a.active {
     text-transform: uppercase;
 }
 .bread-crumb .active, .freecode_grid .toolbar.top .label {
-	color: #AF0057;
+	color: #15488E;
 }
 .freecode_grid .toolbar.top .label {
 	text-transform: uppercase;
@@ -199,7 +199,7 @@ div.csmenu div.submenu, .freecode_grid tbody td select, .freecode_grid tbody td 
 	border: none;
 }
 .freecode_grid thead td, .freecode_grid tbody td.idx {
-	background-color: #333;
+	background-color: #888;
 	border: none;
 	padding: 4px 8px;
 }
@@ -207,7 +207,7 @@ div.csmenu div.submenu, .freecode_grid tbody td select, .freecode_grid tbody td 
 	padding: 4px 12px;
 }
 .freecode_grid tbody td select, .freecode_grid tbody td.filter, .freecode_grid tbody td.filter {
-	background-color: #c0869c;
+	background-color: #ccc;
 }
 .freecode_grid tbody td select {
 	padding: 6px;
@@ -229,16 +229,16 @@ div.csmenu div.submenu, .freecode_grid tbody td select, .freecode_grid tbody td 
 	background-color: #333;
 }
 #form_search {
-	padding: 3px 12px 3px 3px;
+    padding: 3px 12px 3px 3px;
     float: left;
     left: 24px;
     position: relative;
 }
 #login-box {
-	width: 400px;
-	padding: 10px;
-	border: 1px solid #e0e0e0;
-	margin: 20px auto;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    margin: 20px auto;
 }
 #form_search input, #form_search input:hover {
     border: none;
@@ -299,7 +299,7 @@ div.csmenu div.submenu, .freecode_grid tbody td select, .freecode_grid tbody td 
     padding: 4px 12px;
 }
 .header-box h1 strong {
-	color: #af0057;
+	color: #15488E;
 }
 .action-menu a:hover, .action-menu a.active, .freecode_grid .button {
 	background: #e0e0e0;
@@ -312,7 +312,7 @@ div.csmenu div.submenu, .freecode_grid tbody td select, .freecode_grid tbody td 
 	color: white;
 }
 #very-big-link-box {
-    color: #c0869c;
+    color: #ccc;
     line-height: 42px;
     font-size: 26px;
     margin-right: 30px;
@@ -321,7 +321,7 @@ div.csmenu div.submenu, .freecode_grid tbody td select, .freecode_grid tbody td 
     color: #fff;
 }
 #very-big-link-box a:hover {
-    color: #c0869c;
+    color: #ccc;
 }
 #big-link-box {
 	margin-top: 0;
