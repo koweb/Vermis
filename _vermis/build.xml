@@ -3,7 +3,7 @@
 
 <project name="vermis" default="dummy" basedir=".">
 
-    <property file="./build.properties"/>
+    <!-- <property file="./build.properties"/>-->
 
     <!-- Dummy -->
     <target name="dummy"
@@ -23,6 +23,21 @@
   
     <!-- Prepare -->
     <target name="prepare" depends="clean"
+            description="Prepare">
+        <mkdir dir="./upload"/>
+        <mkdir dir="./upload/tmp"/>
+        <mkdir dir="./upload/issues"/>
+            <exec dir="./" command="chmod -R ugo=rwx upload"/>
+        <mkdir dir="./captcha"/>
+            <exec dir="./" command="chmod -R ugo=rwx captcha"/>
+        <mkdir dir="./log"/>
+            <exec dir="./" command="chmod ugo=rwx log"/>
+        <mkdir dir="./test/results"/>
+        <mkdir dir="./test/coverage"/>
+        <mkdir dir="./doc/html"/>
+    </target>
+    
+     <target name="prepare-first"
             description="Prepare">
         <mkdir dir="./upload"/>
         <mkdir dir="./upload/tmp"/>
@@ -96,7 +111,7 @@
     <target name="test" depends="prepare"
             description="Unit testing">
         <exec 
-                command="phpunit --debug --verbose --process-isolation --log-junit results/unit-tests.xml UnitTests" 
+                command="php ../../vendor/bin/phpunit --debug --verbose --process-isolation --log-junit results/unit-tests.xml UnitTests" 
                 dir="./test/"  
                 passthru="true"
                 checkreturn="true"/>
@@ -106,7 +121,7 @@
     <target name="selenium" depends="build"
             description="Selenium testing">
         <exec 
-                command="phpunit --verbose --process-isolation --log-junit results/selenium-tests.xml SeleniumTests" 
+                command="php ../../phpunit --verbose --process-isolation --log-junit results/selenium-tests.xml SeleniumTests" 
                 dir="./test/"  
                 passthru="true"
                 checkreturn="true"/>

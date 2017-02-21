@@ -26,7 +26,7 @@ $pathes = array(
     '/test',
     '/test/app/controllers',
     '/test/app/models',
-	'/test/selenium'
+    '/test/selenium'
 );
 
 $includePath = '';

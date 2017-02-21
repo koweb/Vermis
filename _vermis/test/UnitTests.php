@@ -13,7 +13,6 @@
  *              https://github.com/koweb/Vermis
  * =============================================================================
  */
-
 require_once 'bootstrap.php';
 
 /**
