@@ -29,6 +29,13 @@ class Form_Project_SimpleIssue extends FreeCode_Form
 
         $this->_userId = $userId;
         
+        $translator = $this->getTranslator();
+        $translateItemFunc = function (&$key, $value, $trans) {
+                    $key = $trans->translate($value);
+                };
+                
+        array_walk(Project_Issue::$typeLabels, $translateItemFunc, $translator);
+        
         $projectId = new Zend_Form_Element_Select('project_id');
         $projectId
             ->setLabel('project')
