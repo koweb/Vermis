@@ -23,11 +23,21 @@ class Form_Project_Issue extends FreeCode_Form
     
     protected $_projectId = null;
     
+    
     public function __construct($projectId, $options = null)
     {
         parent::__construct($options);
 
         $this->_projectId = $projectId;
+        
+        $translator = $this->getTranslator();
+        $translateItemFunc = function (&$key, $value, $trans) {
+                    $key = $trans->translate($value);
+                };
+                
+        array_walk(Project_Issue::$typeLabels, $translateItemFunc, $translator);
+        array_walk(Project_Issue::$priorityLabels, $translateItemFunc, $translator);
+        array_walk(Project_Issue::$statusLabels, $translateItemFunc, $translator);
         
         $type = new Zend_Form_Element_Select('type');
         $type
