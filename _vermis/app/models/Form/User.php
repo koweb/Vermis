@@ -77,6 +77,12 @@ class Form_User extends FreeCode_Form
             ))
             ->setValue(User::STATUS_ACTIVE);
 
+        $acceptLicence = new Zend_Form_Element_Checkbox('accept_licence');
+        $acceptLicence
+            ->setDescription('accept_licence_description')
+            ->setRequired(true)
+            ->setUncheckedValue(NULL);
+        
         $emailNotify = new Zend_Form_Element_Checkbox('email_notify');
         $emailNotify
             ->setDescription('send_me_email_notifications')
@@ -101,6 +107,10 @@ class Form_User extends FreeCode_Form
             $status,
             $emailNotify
         ));
+        
+        
+        if (isset($options['enableAcceptLicence']) && $options['enableAcceptLicence'])
+            $this->addElement($acceptLicence);
         
         if (isset($options['enableCaptcha']) && $options['enableCaptcha'])
             $this->addElement($captcha);

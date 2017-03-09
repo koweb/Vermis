@@ -42,7 +42,7 @@ class UsersController extends Default_Controller
     {
         $this->_breadCrumbs->addCrumb('create_a_new_user', array(), 'users/new');
         
-        $form = new Form_User;
+        $form = new Form_User();
         $this->view->form = $form;
 
         if ($this->isPostRequest()) {
@@ -303,7 +303,8 @@ class UsersController extends Default_Controller
         $this->_breadCrumbs->addCrumb('signup_for_a_new_account');
         
         $form = new Form_User(array(
-            'enableCaptcha' => (FreeCode_Test::isEnabled() ? false : true)
+            'enableCaptcha' => (FreeCode_Test::isEnabled() ? false : true),
+            'enableAcceptLicence' => true
         ));
         $form->removeElement('role');
         $form->removeElement('status');

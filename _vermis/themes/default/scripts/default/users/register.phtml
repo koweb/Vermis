@@ -8,3 +8,32 @@
 </div>
 
 <?= $this->form ?>
+
+<div id="dialog" title="Accept Licence">
+    <p>This is a licence</p>
+    <p>Are you sure do you accept?</p>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            buttons : {
+                        "Confirm" : function() {
+                            $(this).dialog("close");
+                        },
+                        "Cancel" : function() {
+                            $("#accept_licence").removeAttr('checked');
+                            $(this).dialog("close");
+                        }
+                    }
+        });
+        $("#accept_licence").click(function() {
+            var checked = $(this).is(':checked');
+            if (checked) {
+                $("#dialog").dialog("open");
+            }
+        });
+    });
+</script>
