@@ -42,7 +42,7 @@ class UsersController extends Default_Controller
     {
         $this->_breadCrumbs->addCrumb('create_a_new_user', array(), 'users/new');
         
-        $form = new Form_User;
+        $form = new Form_User();
         $this->view->form = $form;
 
         if ($this->isPostRequest()) {
@@ -301,17 +301,19 @@ class UsersController extends Default_Controller
     public function registerAction()
     {
         $this->_breadCrumbs->addCrumb('signup_for_a_new_account');
-        
+        $config = $this->getConfig();
         $form = new Form_User(array(
-            'enableCaptcha' => (FreeCode_Test::isEnabled() ? false : true)
+            'enableCaptcha' => (FreeCode_Test::isEnabled() ? false : true),
+            'enableAcceptLicence' => $config->get('showRegisterAcceptLicence')
         ));
         $form->removeElement('role');
         $form->removeElement('status');
+        
         $this->view->form = $form;
         
         if ($this->isPostRequest()) {
             $data = $this->_request->getPost();
-
+            $form->removeElement('accept_licence');
             $form->login->addValidator(new FreeCode_Validate_User_LoginNotExists());
             $form->name->addValidator(new FreeCode_Validate_Doctrine_UniqueSlug('User', 'slug'));
             $form->email->addValidator(new FreeCode_Validate_User_EmailNotExists());

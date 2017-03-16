@@ -226,5 +226,6 @@ return array(
     'issue-opened by' => 'aperto da',
     'issue-in-progress by' => 'lavorazione avviata da',
     'issue-resolved by' => 'risolto da',
-    'issue-closed by' => 'chiuso da'
+    'issue-closed by' => 'chiuso da',
+    'accept_licence_description' => 'Accetta la licenza'
 );
