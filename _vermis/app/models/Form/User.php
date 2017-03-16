@@ -81,8 +81,7 @@ class Form_User extends FreeCode_Form
         $acceptLicence
             ->setDescription('accept_licence_description')
             ->setRequired(true)
-            ->setUncheckedValue(NULL)
-            ->setIgnore(true);
+            ->setUncheckedValue(NULL);
         
         $emailNotify = new Zend_Form_Element_Checkbox('email_notify');
         $emailNotify

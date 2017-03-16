@@ -109,6 +109,10 @@ return array(
             'debug'     => false
         ),
         
+        // Enables in user registration the acceptance of a licence.
+        // Licence text must be written in row 13 of _vermis/themes/default/scripts/users/register.phtml
+        'showRegisterAcceptLicence' => true,
+        
         // Throw exceptions instead of displaying Error 404 page.
         // This should not be set to true when using Vermis in production!
         'throwExceptions'   => false
