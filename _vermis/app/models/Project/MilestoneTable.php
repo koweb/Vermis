@@ -44,6 +44,25 @@ class Project_MilestoneTable extends FreeCode_Doctrine_Table
     }
     
     /**
+     * Get milestones .
+     * @param $hydrationMode
+     * @return  Doctrine_Query
+     */
+    public function getMilestonesQuery(
+        $hydrationMode = Doctrine::HYDRATE_ARRAY)
+    {
+        $query = Doctrine_Query::create()
+            ->select("m.*")
+            ->addSelect('ma.name AS author_name, ma.slug AS author_slug')
+            ->addSelect('mc.name AS changer_name, mc.slug AS changer_slug')
+            ->addSelect('(SELECT COUNT(i.id) FROM Project_Issue i WHERE i.milestone_id = m.id) AS num_issues')
+            ->from("Project_Milestone m, m.author ma, m.changer mc")
+            ->orderBy("m.name DESC")
+            ->setHydrationMode($hydrationMode);
+        return $query;
+    }
+    
+    /**
      * Check if milestone exists.
      * @param int       $projectId
      * @param string    $slug

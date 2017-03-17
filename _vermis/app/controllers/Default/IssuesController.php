@@ -83,6 +83,8 @@ class IssuesController extends Default_Controller
                 $issue->description = stripslashes($data['description']);
                 $issue->title = stripslashes($data['title']);
                 $issue->type = $data['type'];
+                $issue->component_id = $data['component_id'];
+                $issue->milestone_id = $data['milestone_id'];
                 
                 /// @TODO: doctrine bug?
                 $project->issue_counter = $project->issue_counter + 1;                     
@@ -105,4 +107,31 @@ class IssuesController extends Default_Controller
         }
     }
     
+    public function componentsAction() {
+        $projectId = (int) $this->_request->getParam('project_id');
+
+        $table = Doctrine::getTable('Project_Component');
+        $components = $table->fetchComponentsAsOptions($projectId);
+        
+        $result = array();
+        foreach($components as $id => $name) {
+            $result[] = array('id' => $id, 'name' => $name);
+        }
+        
+        $this->_helper->json($result);
+    }
+    
+    public function milestonesAction() {
+        $projectId = (int) $this->_request->getParam('project_id');
+
+        $table = Doctrine::getTable('Project_Milestone');
+        $milestones = $table->fetchMilestonesAsOptions($projectId);
+        
+        $result = array();
+        foreach($milestones as $id => $name) {
+            $result[] = array('id' => $id, 'name' => $name);
+        }
+        
+        $this->_helper->json($result);
+    }
 }

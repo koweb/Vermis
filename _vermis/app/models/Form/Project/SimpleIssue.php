@@ -41,6 +41,16 @@ class Form_Project_SimpleIssue extends FreeCode_Form
             ->setLabel('project')
             ->setRequired(true)
             ->setMultiOptions($this->fetchProjectsAsOptions());
+        
+        $componentId = new Zend_Form_Element_Select('component_id');
+        $componentId
+            ->setLabel('component')
+            ->setMultiOptions($this->fetchComponentsAsOptions());
+            
+        $milestoneId = new Zend_Form_Element_Select('milestone_id');
+        $milestoneId
+            ->setLabel('milestone')
+            ->setMultiOptions($this->fetchMilestonesAsOptions());
             
         $type = new Zend_Form_Element_Select('type');
         $type
@@ -65,6 +75,8 @@ class Form_Project_SimpleIssue extends FreeCode_Form
 
         $this->addElements(array(
             $projectId,
+            $componentId,
+            $milestoneId,
             $type,
             $title,
             $description,
@@ -78,6 +90,30 @@ class Form_Project_SimpleIssue extends FreeCode_Form
         $records = Doctrine::getTable('Project')
             ->getAvailableProjectsQuery($this->_userId)
             ->select("p.id, p.name")
+            ->execute();
+        foreach ($records as $record)
+            $options[$record['id']] = $record['name'];
+        return $options;
+    }
+    
+    public function fetchComponentsAsOptions()
+    {
+        $options = array();
+        $records = Doctrine::getTable('Project_Component')
+            ->getComponentsQuery()
+            ->select("c.id, c.name")
+            ->execute();
+        foreach ($records as $record)
+            $options[$record['id']] = $record['name'];
+        return $options;
+    }
+    
+    public function fetchMilestonesAsOptions()
+    {
+        $options = array();
+        $records = Doctrine::getTable('Project_Milestone')
+            ->getMilestonesQuery()
+            ->select("m.id, m.name")
             ->execute();
         foreach ($records as $record)
             $options[$record['id']] = $record['name'];

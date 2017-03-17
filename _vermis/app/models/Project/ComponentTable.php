@@ -42,6 +42,24 @@ class Project_ComponentTable extends FreeCode_Doctrine_Table
             ->setHydrationMode($hydrationMode);
         return $query;
     }
+    /**
+     * Get components.
+     * @param $hydrationMode
+     * @return  Doctrine_Query
+     */
+    public function getComponentsQuery(
+        $hydrationMode = Doctrine::HYDRATE_ARRAY)
+    {
+        $query = Doctrine_Query::create()
+            ->select("c.*")
+            ->addSelect('ca.name AS author_name, ca.slug AS author_slug')
+            ->addSelect('cc.name AS changer_name, cc.slug AS changer_slug')
+            ->addSelect('(SELECT COUNT(i.id) FROM Project_Issue i WHERE i.component_id = c.id) AS num_issues')
+            ->from("Project_Component c, c.author ca, c.changer cc")
+            ->orderBy("c.name ASC")
+            ->setHydrationMode($hydrationMode);
+        return $query;
+    }
     
     /**
      * Check if component exists.

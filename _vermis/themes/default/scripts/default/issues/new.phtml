@@ -8,3 +8,41 @@
 </div>
 
 <?= $this->form ?>
+
+<script type="text/javascript">
+    function updateComponents() {
+        $.ajax({
+            url: "issues/components/?project_id=" + $('#project_id').val(),
+             dataType: 'application/json; charset=utf-8',
+            cache: false,
+            complete:function (response) {
+                    $('#component_id').text('');
+                    var result = JSON.parse(response.responseText);
+                    $.each(result, function(_, value) {
+                        $('#component_id').append($("<option />").val(value.id).text(value.name));
+                    });
+                }
+        });
+    }
+    
+    function updateMilestones() {
+        $.ajax({
+            url: "issues/milestones/?project_id=" + $('#project_id').val(),
+             dataType: 'application/json; charset=utf-8',
+            cache: false,
+            complete:function (response) {
+                    $('#milestone_id').text('');
+                    var result = JSON.parse(response.responseText);
+                    $.each(result, function(_, value) {
+                        $('#milestone_id').append($("<option />").val(value.id).text(value.name));
+                    });
+                }
+        });
+    }
+    
+    $(document).ready(updateComponents);
+    $(document).ready(updateMilestones);
+    
+    $('#project_id').change(updateComponents);
+    $('#project_id').change(updateMilestones);
+</script>

@@ -116,6 +116,5 @@ return array(
         // Throw exceptions instead of displaying Error 404 page.
         // This should not be set to true when using Vermis in production!
         'throwExceptions'   => false
-    ) 
-
+    )
 );
