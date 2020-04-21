@@ -298,7 +298,7 @@ class UsersController extends Default_Controller
         }
     }
     
-    public function registerAction()
+    public function _registerAction()
     {
         $this->_breadCrumbs->addCrumb('signup_for_a_new_account');
         $config = $this->getConfig();
