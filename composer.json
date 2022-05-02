@@ -3,8 +3,7 @@
     "description": "Description of project Vermis.",
     "authors": [
         {
-            "name": "Omar.PIANI",
-            "email": "omar.piani@gmail.com"
+            "name": "Omar.PIANI"
         }
     ],
     "require-dev": {
